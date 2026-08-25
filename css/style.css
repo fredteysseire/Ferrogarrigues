@@ -200,7 +200,7 @@ h3 { font-size: 1.3rem; }
   align-items: flex-end;
   background:
     linear-gradient(180deg, rgba(23,23,21,0.35) 0%, rgba(23,23,21,0.85) 100%),
-    url('../assets/img/garde-corps-inox-01.jpg') center 30% / cover no-repeat;
+    url('../assets/img/garde-corps-inox-01.webp') center 30% / cover no-repeat;
   color: var(--cream);
 }
 
