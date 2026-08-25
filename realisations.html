@@ -91,7 +91,27 @@
         <button data-filter="deco">Autres &amp; Décorations</button>
       </div>
 
+      <!--
+        Nouveaux chantiers : ajoutez chaque nouvelle <article class="project-card"> tout en HAUT
+        de cette grille (ordre du plus récent au plus ancien). Au-delà de 9 cartes sur cette page,
+        dupliquez ce fichier en realisations-2.html (même en-tête/pied de page), déplacez-y les
+        cartes les plus anciennes, et reliez les deux pages via le bloc <nav class="pagination">
+        en bas de cette section.
+      -->
       <div class="grid-3">
+
+        <article class="project-card" data-category="garde-corps">
+          <div class="ph ph-portrait ph-duo">
+            <img src="assets/img/cloture-ferme-ecole-nimes-01.webp" alt="Clôture en pierre et acier, Ferme École, Nîmes" loading="lazy">
+            <img src="assets/img/garde-corps-ferme-ecole-nimes-01.webp" alt="Garde-corps métallique sur mur en béton, Ferme École, Nîmes" loading="lazy">
+          </div>
+          <figcaption><h3>Ferme École — Nîmes</h3><span class="meta">Clôture &amp; garde-corps · Marché public<br>Nîmes (30) — arch. MN Lab</span></figcaption>
+        </article>
+
+        <article class="project-card" data-category="deco">
+          <div class="ph ph-portrait"><img src="assets/img/plaque-entree-acier-01.webp" alt="Plaque d'entrée sur mesure en acier thermolaqué, numéro de rue découpé" loading="lazy"></div>
+          <figcaption><h3>Plaque d'entrée sur mesure</h3><span class="meta">Acier thermolaqué RAL 7016<br>Montferrier-sur-Lez (34)</span></figcaption>
+        </article>
 
         <article class="project-card" data-category="garde-corps">
           <div class="ph ph-portrait"><img src="assets/img/garde-corps-inox-01.webp" alt="Garde-corps d'escalier en inox poli, vue en contre-plongée" loading="lazy"></div>
@@ -113,27 +133,18 @@
           <figcaption><h3>Portail sur mesure</h3><span class="meta">Ferronnerie traditionnelle</span></figcaption>
         </article>
 
-        <article class="project-card" data-category="deco">
-          <div class="ph ph-portrait"><img src="assets/img/plaque-entree-acier-01.webp" alt="Plaque d'entrée sur mesure en acier thermolaqué, numéro de rue découpé" loading="lazy"></div>
-          <figcaption><h3>Plaque d'entrée sur mesure</h3><span class="meta">Acier thermolaqué RAL 7016<br>Montferrier-sur-Lez (34)</span></figcaption>
-        </article>
-
         <article class="project-card" data-category="escaliers">
           <div class="ph ph-portrait" data-label="Photo à venir"></div>
           <figcaption><h3>Escalier métallique</h3><span class="meta">Photo à venir</span></figcaption>
         </article>
 
-        <article class="project-card" data-category="portails">
-          <div class="ph ph-portrait"><img src="assets/img/cloture-ferme-ecole-nimes-01.webp" alt="Clôture en pierre et acier, Ferme École, Nîmes" loading="lazy"></div>
-          <figcaption><h3>Clôture — Ferme École</h3><span class="meta">Pierre &amp; acier · Marché public<br>Nîmes (30) — arch. MN Lab</span></figcaption>
-        </article>
-
-        <article class="project-card" data-category="garde-corps">
-          <div class="ph ph-portrait"><img src="assets/img/garde-corps-ferme-ecole-nimes-01.webp" alt="Garde-corps métallique sur mur en béton, Ferme École, Nîmes" loading="lazy"></div>
-          <figcaption><h3>Garde-corps — Ferme École</h3><span class="meta">Acier thermolaqué · Marché public<br>Nîmes (30) — arch. MN Lab</span></figcaption>
-        </article>
-
       </div>
+
+      <nav class="pagination" aria-label="Pagination des réalisations">
+        <span class="disabled">‹ Précédent</span>
+        <span class="active" aria-current="page">1</span>
+        <span class="disabled">Suivant ›</span>
+      </nav>
 
       <p class="form-note mt-lg">D'autres réalisations seront ajoutées au fur et à mesure — n'hésitez pas à nous envoyer vos photos de chantiers récents.</p>
 

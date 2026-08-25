@@ -146,19 +146,48 @@
         <span class="eyebrow">Portfolio</span>
         <h2>Réalisations récentes</h2>
       </div>
-      <div class="grid-3">
-        <article class="project-card">
-          <div class="ph ph-portrait"><img src="assets/img/garde-corps-inox-01.webp" alt="Garde-corps d'escalier en inox poli" loading="lazy"></div>
-          <figcaption><h3>Garde-corps d'escalier</h3><span class="meta">Inox poli</span></figcaption>
-        </article>
-        <article class="project-card">
-          <div class="ph ph-portrait"><img src="assets/img/verriere-acier-01.webp" alt="Verrière de toit en menuiserie acier" loading="lazy"></div>
-          <figcaption><h3>Verrière de toit</h3><span class="meta">Menuiserie acier</span></figcaption>
-        </article>
-        <article class="project-card">
-          <div class="ph ph-portrait"><img src="assets/img/portail-ferronnerie-01.webp" alt="Portail en ferronnerie traditionnelle" loading="lazy"></div>
-          <figcaption><h3>Portail sur mesure</h3><span class="meta">Ferronnerie</span></figcaption>
-        </article>
+      <!--
+        Chaque nouveau chantier ajouté dans realisations.html doit aussi être ajouté ici,
+        EN PREMIER dans .carousel-track (ordre du plus récent au plus ancien).
+      -->
+      <div class="carousel">
+        <button class="carousel-btn prev" aria-label="Réalisation précédente" data-carousel-prev>‹</button>
+        <div class="carousel-track" id="home-carousel">
+          <a class="carousel-item" href="realisations.html">
+            <div class="ph ph-portrait ph-duo">
+              <img src="assets/img/cloture-ferme-ecole-nimes-01.webp" alt="Clôture en pierre et acier, Ferme École, Nîmes" loading="lazy">
+              <img src="assets/img/garde-corps-ferme-ecole-nimes-01.webp" alt="Garde-corps métallique, Ferme École, Nîmes" loading="lazy">
+            </div>
+            <h3>Ferme École — Nîmes</h3>
+            <span class="meta">Clôture &amp; garde-corps · Marché public</span>
+          </a>
+          <a class="carousel-item" href="realisations.html">
+            <div class="ph ph-portrait"><img src="assets/img/plaque-entree-acier-01.webp" alt="Plaque d'entrée sur mesure en acier thermolaqué" loading="lazy"></div>
+            <h3>Plaque d'entrée sur mesure</h3>
+            <span class="meta">Acier thermolaqué RAL 7016 — Montferrier-sur-Lez (34)</span>
+          </a>
+          <a class="carousel-item" href="realisations.html">
+            <div class="ph ph-portrait"><img src="assets/img/garde-corps-inox-01.webp" alt="Garde-corps d'escalier en inox poli" loading="lazy"></div>
+            <h3>Garde-corps d'escalier</h3>
+            <span class="meta">Inox poli</span>
+          </a>
+          <a class="carousel-item" href="realisations.html">
+            <div class="ph ph-portrait"><img src="assets/img/verriere-acier-01.webp" alt="Verrière de toit en menuiserie acier" loading="lazy"></div>
+            <h3>Verrière de toit</h3>
+            <span class="meta">Menuiserie acier — collection Pleine Lumière</span>
+          </a>
+          <a class="carousel-item" href="realisations.html">
+            <div class="ph ph-portrait"><img src="assets/img/rambarde-acier-01.webp" alt="Rambarde d'escalier en acier, finition noire" loading="lazy"></div>
+            <h3>Rambarde d'escalier</h3>
+            <span class="meta">Acier, finition noire</span>
+          </a>
+          <a class="carousel-item" href="realisations.html">
+            <div class="ph ph-portrait"><img src="assets/img/portail-ferronnerie-01.webp" alt="Portail en ferronnerie traditionnelle" loading="lazy"></div>
+            <h3>Portail sur mesure</h3>
+            <span class="meta">Ferronnerie traditionnelle</span>
+          </a>
+        </div>
+        <button class="carousel-btn next" aria-label="Réalisation suivante" data-carousel-next>›</button>
       </div>
       <p class="center mt-lg"><a href="realisations.html" class="btn btn-outline">Toutes les réalisations</a></p>
 

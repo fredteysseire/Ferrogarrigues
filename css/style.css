@@ -352,6 +352,94 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 
 .project-card[hidden] { display: none; }
 
+.ph-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.ph-duo img { height: 100%; }
+
+/* ---------- Pagination ---------- */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+.pagination a,
+.pagination span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--steel);
+}
+.pagination a:hover { border-color: var(--accent); color: var(--charcoal); }
+.pagination .active {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--cream);
+}
+.pagination .disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ---------- Carousel ---------- */
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.carousel-track {
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: min(280px, 78vw);
+  scroll-snap-align: start;
+  display: block;
+}
+.carousel-item .ph { margin-bottom: 1rem; }
+.carousel-item h3 { font-size: 1.05rem; margin-bottom: 0.25rem; }
+.carousel-item .meta { font-size: 0.82rem; color: var(--steel); }
+
+.carousel-btn {
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.carousel-btn:hover { background: var(--charcoal); color: var(--cream); border-color: var(--charcoal); }
+
+@media (max-width: 700px) {
+  .carousel-btn { display: none; }
+}
+
 /* ---------- Pleine Lumière ---------- */
 
 .pl-mark {
