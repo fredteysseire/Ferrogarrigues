@@ -600,6 +600,23 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   color: var(--cream);
 }
 
+.pl-brand-plaque {
+  background: var(--cream);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pl-brand-plaque img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+@media (max-width: 780px) {
+  .pl-brand-plaque { margin-top: 2rem; }
+}
+
 .pl-features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
