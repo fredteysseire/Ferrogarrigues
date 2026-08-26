@@ -93,58 +93,69 @@
 
       <!--
         Nouveaux chantiers : ajoutez chaque nouvelle <article class="project-card"> tout en HAUT
-        de cette grille (ordre du plus récent au plus ancien). Au-delà de 9 cartes sur cette page,
-        dupliquez ce fichier en realisations-2.html (même en-tête/pied de page), déplacez-y les
-        cartes les plus anciennes, et reliez les deux pages via le bloc <nav class="pagination">
-        en bas de cette section.
+        de cette grille (ordre du plus récent au plus ancien). Chaque carte affiche UNE SEULE photo
+        de couverture (uniformité visuelle) ; les autres photos du même chantier vont dans l'attribut
+        data-images (JSON : [{"src":"...","alt":"..."}, ...], la couverture en premier) et s'ouvrent
+        dans la visionneuse au clic. Au-delà de 9 cartes sur cette page, dupliquez ce fichier en
+        realisations-2.html (même en-tête/pied de page), déplacez-y les cartes les plus anciennes,
+        et reliez les deux pages via le bloc <nav class="pagination"> en bas de cette section.
       -->
       <div class="grid-3">
 
-        <article class="project-card" data-category="verrieres">
-          <div class="ph ph-portrait ph-duo">
-            <img src="assets/img/verriere-laiton-montpellier-02.webp" alt="Verrière d'intérieur en menuiserie acier finition laiton, profils fins, Montpellier" loading="lazy">
-            <img src="assets/img/paroi-douche-laiton-montpellier-01.webp" alt="Paroi de douche ouvrante en menuiserie acier laiton sur mesure, salle de bain marbre, Montpellier" loading="lazy">
-          </div>
+        <article class="project-card" data-category="verrieres" tabindex="0" role="button" aria-haspopup="dialog"
+          data-images='[
+            {"src":"assets/img/verriere-laiton-montpellier-02.webp","alt":"Verrière d&#39;intérieur en menuiserie acier finition laiton, profils fins, Montpellier"},
+            {"src":"assets/img/verriere-laiton-montpellier-01.webp","alt":"Détail des profils fins de la verrière laiton, Montpellier"},
+            {"src":"assets/img/paroi-douche-laiton-montpellier-01.webp","alt":"Paroi de douche ouvrante en menuiserie acier laiton, salle de bain marbre, Montpellier"}
+          ]'>
+          <div class="ph ph-portrait"><img src="assets/img/verriere-laiton-montpellier-02.webp" alt="Verrière d'intérieur en menuiserie acier finition laiton, profils fins, Montpellier" loading="lazy"></div>
           <figcaption><h3>Verrière &amp; paroi de douche laiton — Montpellier</h3><span class="meta">Menuiserie acier finition laiton, profils fins — collection Pleine Lumière<br>Villa d'architecte, Montpellier (34) — arch. Dedini Architecte</span></figcaption>
         </article>
 
-        <article class="project-card" data-category="portails">
-          <div class="ph ph-portrait ph-duo">
-            <img src="assets/img/portail-corten-nimes-01.webp" alt="Portail coulissant sur mesure en acier Corten, villa d'architecte à Nîmes (Gard)" loading="lazy">
-            <img src="assets/img/portail-corten-nimes-02.webp" alt="Détail du portail coulissant acier Corten motorisé, Nîmes" loading="lazy">
-          </div>
+        <article class="project-card" data-category="portails" tabindex="0" role="button" aria-haspopup="dialog"
+          data-images='[
+            {"src":"assets/img/portail-corten-nimes-01.webp","alt":"Portail coulissant sur mesure en acier Corten, villa d&#39;architecte à Nîmes (Gard)"},
+            {"src":"assets/img/portail-corten-nimes-02.webp","alt":"Détail du portail coulissant acier Corten motorisé, Nîmes"}
+          ]'>
+          <div class="ph ph-portrait"><img src="assets/img/portail-corten-nimes-01.webp" alt="Portail coulissant sur mesure en acier Corten, villa d'architecte à Nîmes (Gard)" loading="lazy"></div>
           <figcaption><h3>Portail coulissant acier Corten — Nîmes</h3><span class="meta">Acier Corten · 5 × 1,80 m, motorisé<br>Villa d'architecte, Nîmes (30)</span></figcaption>
         </article>
 
-        <article class="project-card" data-category="garde-corps">
-          <div class="ph ph-portrait ph-duo">
-            <img src="assets/img/cloture-ferme-ecole-nimes-01.webp" alt="Clôture en pierre et acier, Ferme École, Nîmes" loading="lazy">
-            <img src="assets/img/garde-corps-ferme-ecole-nimes-01.webp" alt="Garde-corps métallique sur mur en béton, Ferme École, Nîmes" loading="lazy">
-          </div>
+        <article class="project-card" data-category="garde-corps" tabindex="0" role="button" aria-haspopup="dialog"
+          data-images='[
+            {"src":"assets/img/cloture-ferme-ecole-nimes-01.webp","alt":"Clôture en pierre et acier, Ferme École, Nîmes"},
+            {"src":"assets/img/garde-corps-ferme-ecole-nimes-01.webp","alt":"Garde-corps métallique sur mur en béton, Ferme École, Nîmes"}
+          ]'>
+          <div class="ph ph-portrait"><img src="assets/img/cloture-ferme-ecole-nimes-01.webp" alt="Clôture en pierre et acier, Ferme École, Nîmes" loading="lazy"></div>
           <figcaption><h3>Ferme École — Nîmes</h3><span class="meta">Clôture &amp; garde-corps · Marché public<br>Nîmes (30) — arch. MN Lab</span></figcaption>
         </article>
 
-        <article class="project-card" data-category="deco">
+        <article class="project-card" data-category="deco" tabindex="0" role="button" aria-haspopup="dialog"
+          data-images='[{"src":"assets/img/plaque-entree-acier-01.webp","alt":"Plaque d&#39;entrée sur mesure en acier thermolaqué, numéro de rue découpé"}]'>
           <div class="ph ph-portrait"><img src="assets/img/plaque-entree-acier-01.webp" alt="Plaque d'entrée sur mesure en acier thermolaqué, numéro de rue découpé" loading="lazy"></div>
           <figcaption><h3>Plaque d'entrée sur mesure</h3><span class="meta">Acier thermolaqué RAL 7016<br>Montferrier-sur-Lez (34)</span></figcaption>
         </article>
 
-        <article class="project-card" data-category="garde-corps">
+        <article class="project-card" data-category="garde-corps" tabindex="0" role="button" aria-haspopup="dialog"
+          data-images='[{"src":"assets/img/garde-corps-inox-01.webp","alt":"Garde-corps d&#39;escalier en inox poli, vue en contre-plongée"}]'>
           <div class="ph ph-portrait"><img src="assets/img/garde-corps-inox-01.webp" alt="Garde-corps d'escalier en inox poli, vue en contre-plongée" loading="lazy"></div>
           <figcaption><h3>Garde-corps d'escalier</h3><span class="meta">Inox poli</span></figcaption>
         </article>
 
-        <article class="project-card" data-category="verrieres">
+        <article class="project-card" data-category="verrieres" tabindex="0" role="button" aria-haspopup="dialog"
+          data-images='[{"src":"assets/img/verriere-acier-01.webp","alt":"Verrière de toit en menuiserie acier noire"}]'>
           <div class="ph ph-portrait"><img src="assets/img/verriere-acier-01.webp" alt="Verrière de toit en menuiserie acier noire" loading="lazy"></div>
           <figcaption><h3>Verrière de toit</h3><span class="meta">Menuiserie acier — collection Pleine Lumière</span></figcaption>
         </article>
 
-        <article class="project-card" data-category="garde-corps">
+        <article class="project-card" data-category="garde-corps" tabindex="0" role="button" aria-haspopup="dialog"
+          data-images='[{"src":"assets/img/rambarde-acier-01.webp","alt":"Rambarde d&#39;escalier en acier, finition noire"}]'>
           <div class="ph ph-portrait"><img src="assets/img/rambarde-acier-01.webp" alt="Rambarde d'escalier en acier, finition noire" loading="lazy"></div>
           <figcaption><h3>Rambarde d'escalier</h3><span class="meta">Acier, finition noire</span></figcaption>
         </article>
 
-        <article class="project-card" data-category="portails">
+        <article class="project-card" data-category="portails" tabindex="0" role="button" aria-haspopup="dialog"
+          data-images='[{"src":"assets/img/portail-ferronnerie-01.webp","alt":"Portail en ferronnerie traditionnelle, sous porche en pierre"}]'>
           <div class="ph ph-portrait"><img src="assets/img/portail-ferronnerie-01.webp" alt="Portail en ferronnerie traditionnelle, sous porche en pierre" loading="lazy"></div>
           <figcaption><h3>Portail sur mesure</h3><span class="meta">Ferronnerie traditionnelle</span></figcaption>
         </article>
@@ -176,6 +187,20 @@
   </section>
 
 </main>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Visionneuse de photos">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Fermer">✕</button>
+  <button class="lightbox-prev" id="lightbox-prev" aria-label="Photo précédente">‹</button>
+  <figure class="lightbox-figure">
+    <img id="lightbox-img" src="" alt="">
+  </figure>
+  <button class="lightbox-next" id="lightbox-next" aria-label="Photo suivante">›</button>
+  <div class="lightbox-caption">
+    <h3 id="lightbox-title"></h3>
+    <span class="meta" id="lightbox-meta"></span>
+    <div class="lightbox-count" id="lightbox-count"></div>
+  </div>
+</div>
 
 <footer class="site-footer" id="site-footer"></footer>
 
