@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="tel:+33661067375">06 61 06 73 75</a></li>
             <li><a href="mailto:contact@ferrogarrigues.fr">contact@ferrogarrigues.fr</a></li>
             <li>305 chemin de la Gravière<br>30210 Sernhac</li>
-            <li>Gard, Hérault, Vaucluse, Bouches-du-Rhône, déplacements France entière selon projet</li>
+            <li>Gard, Hérault, Vaucluse, Bouches-du-Rhône, Côte d'Azur, déplacements France entière selon projet</li>
           </ul>
           <div class="social-icons" style="margin-top: 1rem;">
             <a href="https://www.instagram.com/fmgmetalstudio/" target="_blank" rel="noopener" aria-label="FMG Metal Studio sur Instagram">
