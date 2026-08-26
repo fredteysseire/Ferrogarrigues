@@ -1,4 +1,4 @@
-// FMG Metal Studio — interactions front-end (sans dépendance)
+// FMG Metal Studio, interactions front-end (sans dépendance)
 
 document.addEventListener('DOMContentLoaded', () => {
   // Menu mobile

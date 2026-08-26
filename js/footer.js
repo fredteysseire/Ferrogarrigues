@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="footer-grid">
         <div>
           <h4>FMG Metal Studio</h4>
-          <p>Atelier d'architecture métallique.<br>Garde-corps, escaliers, verrières et menuiserie acier sur mesure — créateur de la collection Pleine Lumière®.</p>
+          <p>Atelier d'architecture métallique.<br>Garde-corps, escaliers, verrières et menuiserie acier sur mesure, créateur de la collection Pleine Lumière®.</p>
         </div>
         <div>
           <h4>Navigation</h4>
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="tel:+33661067375">06 61 06 73 75</a></li>
             <li><a href="mailto:contact@ferrogarrigues.fr">contact@ferrogarrigues.fr</a></li>
             <li>305 chemin de la Gravière<br>30210 Sernhac</li>
-            <li>Sud de la France — déplacements France entière selon projet</li>
+            <li>Sud de la France, déplacements France entière selon projet</li>
           </ul>
           <div class="social-icons" style="margin-top: 1rem;">
             <a href="https://www.instagram.com/fmgmetalstudio/" target="_blank" rel="noopener" aria-label="FMG Metal Studio sur Instagram">
