@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!images.length) return;
       index = 0;
       const filterBtn = document.querySelector(`.filters [data-filter="${card.dataset.category}"]`);
-      pmCategory.textContent = filterBtn ? filterBtn.textContent : '';
+      pmCategory.textContent = card.dataset.eyebrow || (filterBtn ? filterBtn.textContent : '');
       pmTitle.textContent = card.querySelector('h3')?.textContent || '';
       pmLocation.textContent = card.dataset.location || '';
       pmDesc.textContent = card.dataset.description || '';

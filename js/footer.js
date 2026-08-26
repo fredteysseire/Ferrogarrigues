@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="atelier.html">L'Atelier</a></li>
             <li><a href="realisations.html">Réalisations</a></li>
             <li><a href="pleine-lumiere.html">Pleine Lumière®</a></li>
+            <li><a href="actualites.html">Actualités</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>

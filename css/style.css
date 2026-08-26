@@ -734,15 +734,15 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 /* ---------- Instagram (fil en direct SnapWidget) ---------- */
 
 .insta-embed {
-  max-width: 900px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 .insta-embed iframe {
   display: block;
   width: 100%;
+  max-width: 502px;
   aspect-ratio: 1 / 1;
   border: none;
-  overflow: hidden;
 }
 
 /* ---------- Footer ---------- */
