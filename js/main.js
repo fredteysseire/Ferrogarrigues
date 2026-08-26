@@ -46,16 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => scrollByCard(1));
   }
 
-  // Visionneuse (lightbox) des réalisations : clic sur une carte -> galerie photo
-  const lightbox = document.getElementById('lightbox');
-  if (lightbox) {
-    const lbImg = document.getElementById('lightbox-img');
-    const lbTitle = document.getElementById('lightbox-title');
-    const lbMeta = document.getElementById('lightbox-meta');
-    const lbCount = document.getElementById('lightbox-count');
-    const lbPrev = document.getElementById('lightbox-prev');
-    const lbNext = document.getElementById('lightbox-next');
-    const lbClose = document.getElementById('lightbox-close');
+  // Fiche détaillée des réalisations : clic sur une carte -> description, localisation, galerie
+  const modal = document.getElementById('project-modal');
+  if (modal) {
+    const pmImg = document.getElementById('pm-img');
+    const pmCategory = document.getElementById('pm-category');
+    const pmTitle = document.getElementById('pm-title');
+    const pmLocation = document.getElementById('pm-location');
+    const pmDesc = document.getElementById('pm-desc');
+    const pmCount = document.getElementById('pm-count');
+    const pmPrev = document.getElementById('pm-prev');
+    const pmNext = document.getElementById('pm-next');
+    const pmClose = document.getElementById('pm-close');
 
     let images = [];
     let index = 0;
@@ -63,10 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const render = () => {
       const item = images[index];
-      lbImg.src = item.src;
-      lbImg.alt = item.alt || '';
-      lbCount.textContent = images.length > 1 ? `${index + 1} / ${images.length}` : '';
-      lbPrev.hidden = lbNext.hidden = images.length <= 1;
+      pmImg.src = item.src;
+      pmImg.alt = item.alt || '';
+      pmCount.textContent = images.length > 1 ? `${index + 1} / ${images.length}` : '';
+      pmCount.hidden = images.length <= 1;
+      pmPrev.hidden = pmNext.hidden = images.length <= 1;
     };
 
     const open = (card) => {
@@ -77,17 +80,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (!images.length) return;
       index = 0;
-      lbTitle.textContent = card.querySelector('h3')?.textContent || '';
-      lbMeta.innerHTML = card.querySelector('.meta')?.innerHTML || '';
+      const filterBtn = document.querySelector(`.filters [data-filter="${card.dataset.category}"]`);
+      pmCategory.textContent = filterBtn ? filterBtn.textContent : '';
+      pmTitle.textContent = card.querySelector('h3')?.textContent || '';
+      pmLocation.textContent = card.dataset.location || '';
+      pmDesc.textContent = card.dataset.description || '';
       render();
       lastFocused = document.activeElement;
-      lightbox.hidden = false;
+      modal.hidden = false;
       document.body.style.overflow = 'hidden';
-      lbClose.focus();
+      pmClose.focus();
     };
 
     const close = () => {
-      lightbox.hidden = true;
+      modal.hidden = true;
       document.body.style.overflow = '';
       if (lastFocused) lastFocused.focus();
     };
@@ -102,15 +108,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    lbPrev.addEventListener('click', () => { index = (index - 1 + images.length) % images.length; render(); });
-    lbNext.addEventListener('click', () => { index = (index + 1) % images.length; render(); });
-    lbClose.addEventListener('click', close);
-    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+    pmPrev.addEventListener('click', () => { index = (index - 1 + images.length) % images.length; render(); });
+    pmNext.addEventListener('click', () => { index = (index + 1) % images.length; render(); });
+    pmClose.addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
     document.addEventListener('keydown', (e) => {
-      if (lightbox.hidden) return;
+      if (modal.hidden) return;
       if (e.key === 'Escape') close();
-      if (e.key === 'ArrowLeft') lbPrev.click();
-      if (e.key === 'ArrowRight') lbNext.click();
+      if (e.key === 'ArrowLeft') pmPrev.click();
+      if (e.key === 'ArrowRight') pmNext.click();
     });
   }
 

@@ -286,11 +286,6 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--steel);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
   overflow: hidden;
 }
 .ph::before {
@@ -299,6 +294,10 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   color: var(--cream);
   padding: 0.5rem 0.9rem;
   border-radius: 2px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
 }
 .ph-square { aspect-ratio: 1 / 1; }
 .ph-portrait { aspect-ratio: 3 / 4; }
@@ -352,64 +351,119 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 
 .project-card[hidden] { display: none; }
 
-.project-card[data-images] { cursor: pointer; }
-.project-card[data-images] .ph { position: relative; }
-.project-card[data-images] .ph::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(23,23,21,0);
-  transition: background 0.2s ease;
+/* ---------- Réalisations : cartes uniformes, titre incrusté ---------- */
+
+.project-grid { align-items: start; }
+
+.project-card {
+  border: 1px solid var(--line);
+  background: var(--charcoal);
 }
-.project-card[data-images]:hover .ph::after,
-.project-card[data-images]:focus-visible .ph::after { background: rgba(23,23,21,0.15); }
-.project-card[data-images]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.project-card[data-images] { cursor: pointer; }
+.project-card[data-images]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-/* ---------- Lightbox ---------- */
+.pc-media { margin: 0; }
+.pc-media img { transition: transform 0.5s ease; }
+.project-card[data-images]:hover .pc-media img,
+.project-card[data-images]:focus-visible .pc-media img { transform: scale(1.06); }
 
-.lightbox {
+.pc-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.5rem 1.25rem 1.15rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(15,15,13,0.35) 45%, rgba(15,15,13,0.92) 100%);
+  z-index: 1;
+}
+.pc-overlay h3 {
+  color: var(--cream);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+  transition: color 0.2s ease;
+}
+.project-card[data-images]:hover .pc-overlay h3,
+.project-card[data-images]:focus-visible .pc-overlay h3 { color: var(--accent); }
+.pc-location {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--cream-2);
+  opacity: 0.85;
+}
+.project-card-empty .pc-overlay h3,
+.project-card-empty .pc-location { color: var(--steel); opacity: 1; }
+.project-card-empty .pc-overlay { background: none; position: static; padding-top: 0.75rem; }
+.project-card-empty .pc-media::before { content: none; }
+.project-card-empty { background: var(--cream); }
+
+/* ---------- Fiche détaillée (project-modal) ---------- */
+
+.project-modal {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(15, 15, 13, 0.94);
+  background: rgba(15, 15, 13, 0.92);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: clamp(1rem, 4vw, 3rem);
+  overflow-y: auto;
 }
-.lightbox[hidden] { display: none; }
+.project-modal[hidden] { display: none; }
 
-.lightbox-figure {
+.pm-inner {
+  background: var(--cream);
+  width: 100%;
+  max-width: 1120px;
+  max-height: 86vh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  overflow: hidden;
+}
+
+.pm-media {
   position: relative;
-  max-width: min(90vw, 1100px);
-  max-height: 78vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--charcoal);
+  min-height: 320px;
 }
-.lightbox-figure img {
-  max-width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  display: block;
+.pm-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pm-count {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  color: var(--cream);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  background: rgba(15,15,13,0.55);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
 }
 
-.lightbox-caption {
-  color: var(--cream);
-  text-align: center;
-  margin-top: 1.25rem;
-  max-width: 640px;
+.pm-info {
+  padding: clamp(1.75rem, 3vw, 3rem);
+  overflow-y: auto;
 }
-.lightbox-caption h3 { color: var(--cream); font-size: 1.1rem; margin-bottom: 0.35rem; }
-.lightbox-caption .meta { color: var(--steel-light); font-size: 0.85rem; }
-.lightbox-count { color: var(--steel-light); font-size: 0.78rem; letter-spacing: 0.06em; margin-top: 0.6rem; }
+.pm-info h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 0.5rem; }
+.pm-location {
+  color: var(--steel);
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.pm-desc { color: var(--charcoal); line-height: 1.75; }
+
+@media (max-width: 820px) {
+  .pm-inner { grid-template-columns: 1fr; max-height: none; }
+  .pm-media { min-height: 260px; aspect-ratio: 4 / 3; }
+}
 
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
-  position: fixed;
-  background: rgba(246,243,236,0.08);
+  background: rgba(246,243,236,0.1);
   border: 1px solid var(--line-on-dark);
   color: var(--cream);
   border-radius: 50%;
@@ -424,28 +478,28 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 .lightbox-next:hover { background: var(--accent); color: var(--charcoal); border-color: var(--accent); }
 
 .lightbox-close {
+  position: fixed;
   top: clamp(1rem, 3vw, 2rem);
   right: clamp(1rem, 3vw, 2rem);
   width: 2.75rem;
   height: 2.75rem;
   font-size: 1.4rem;
+  z-index: 1001;
 }
 .lightbox-prev,
 .lightbox-next {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 3rem;
-  height: 3rem;
+  width: 2.75rem;
+  height: 2.75rem;
   font-size: 1.5rem;
+  z-index: 1;
 }
-.lightbox-prev { left: clamp(0.5rem, 2vw, 1.5rem); }
-.lightbox-next { right: clamp(0.5rem, 2vw, 1.5rem); }
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
 .lightbox-prev[hidden],
 .lightbox-next[hidden] { display: none; }
-
-@media (max-width: 620px) {
-  .lightbox-prev, .lightbox-next { width: 2.4rem; height: 2.4rem; font-size: 1.25rem; }
-}
 
 /* ---------- Pagination ---------- */
 
