@@ -14,21 +14,38 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // Filtres de la page Réalisations
-  const filterBtns = document.querySelectorAll('.filters [data-filter]');
+  // Filtres de la page Réalisations (cases à cocher, sélection multiple)
+  const filterInputs = document.querySelectorAll('.filters input[data-filter]');
+  const filtersReset = document.getElementById('filters-reset');
   const projects = document.querySelectorAll('[data-category]');
-  if (filterBtns.length) {
-    filterBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        projects.forEach((card) => {
-          const match = filter === 'all' || card.dataset.category === filter;
-          card.hidden = !match;
-        });
+  if (filterInputs.length) {
+    const applyFilters = () => {
+      const active = Array.from(filterInputs).filter((i) => i.checked).map((i) => i.dataset.filter);
+      projects.forEach((card) => {
+        const match = active.length === 0 || active.includes(card.dataset.category);
+        card.hidden = !match;
       });
-    });
+      if (filtersReset) filtersReset.hidden = active.length === 0;
+    };
+
+    filterInputs.forEach((input) => input.addEventListener('change', applyFilters));
+
+    if (filtersReset) {
+      filtersReset.addEventListener('click', () => {
+        filterInputs.forEach((input) => { input.checked = false; });
+        applyFilters();
+      });
+    }
+
+    // Pré-sélection depuis un lien externe, ex. realisations.html?filter=portails
+    const requested = new URLSearchParams(window.location.search).get('filter');
+    if (requested) {
+      const wanted = requested.split(',').map((v) => v.trim()).filter(Boolean);
+      filterInputs.forEach((input) => {
+        if (wanted.includes(input.dataset.filter)) input.checked = true;
+      });
+    }
+    applyFilters();
   }
 
   // Carrousel de réalisations (accueil)
@@ -80,8 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (!images.length) return;
       index = 0;
-      const filterBtn = document.querySelector(`.filters [data-filter="${card.dataset.category}"]`);
-      pmCategory.textContent = card.dataset.eyebrow || (filterBtn ? filterBtn.textContent : '');
+      const filterEl = document.querySelector(`.filters [data-filter="${card.dataset.category}"]`);
+      const filterLabel = filterEl
+        ? (filterEl.tagName === 'INPUT' ? filterEl.closest('label')?.textContent.trim() : filterEl.textContent)
+        : '';
+      pmCategory.textContent = card.dataset.eyebrow || filterLabel || '';
       pmTitle.textContent = card.querySelector('h3')?.textContent || '';
       pmLocation.textContent = card.dataset.location || '';
       pmDesc.textContent = card.dataset.description || '';

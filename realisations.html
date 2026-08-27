@@ -87,14 +87,32 @@
   <section>
     <div class="wrap">
 
-      <div class="filters">
-        <button data-filter="all" class="active">Tout</button>
-        <button data-filter="garde-corps">Garde-corps &amp; rambardes</button>
-        <button data-filter="portails">Portails &amp; clôtures</button>
-        <button data-filter="escaliers">Escaliers métalliques</button>
-        <button data-filter="verrieres">Verrières &amp; menuiserie acier</button>
-        <button data-filter="pergolas">Pergolas</button>
-        <button data-filter="deco">Autres &amp; Décorations</button>
+      <div class="filters" id="filters">
+        <label class="filter-chip">
+          <input type="checkbox" data-filter="garde-corps">
+          <span>Garde-corps &amp; rambardes</span>
+        </label>
+        <label class="filter-chip">
+          <input type="checkbox" data-filter="portails">
+          <span>Portails &amp; clôtures</span>
+        </label>
+        <label class="filter-chip">
+          <input type="checkbox" data-filter="escaliers">
+          <span>Escaliers métalliques</span>
+        </label>
+        <label class="filter-chip">
+          <input type="checkbox" data-filter="verrieres">
+          <span>Verrières &amp; menuiserie acier</span>
+        </label>
+        <label class="filter-chip">
+          <input type="checkbox" data-filter="pergolas">
+          <span>Pergolas</span>
+        </label>
+        <label class="filter-chip">
+          <input type="checkbox" data-filter="deco">
+          <span>Autres &amp; Décorations</span>
+        </label>
+        <button type="button" id="filters-reset" class="filters-reset" hidden>Réinitialiser</button>
       </div>
 
       <!--
