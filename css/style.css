@@ -114,9 +114,15 @@ h3 { font-size: 1.3rem; }
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid var(--line);
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(246, 243, 236, 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
 }
 
 .site-header .wrap {
