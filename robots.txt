@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.ferrogarrigues.fr/sitemap.xml
+Sitemap: https://ferrogarrigues.fr/sitemap.xml
