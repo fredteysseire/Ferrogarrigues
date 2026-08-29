@@ -583,6 +583,55 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   transform: translateY(-2px);
 }
 .whatsapp-float svg { width: 22px; height: 22px; fill: currentColor; }
+
+/* ---------- Bandeau cookies ---------- */
+
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: var(--charcoal);
+  color: var(--steel-light);
+  padding: 1.1rem clamp(1.25rem, 4vw, 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 -4px 16px rgba(23, 23, 21, 0.25);
+}
+.cookie-banner p {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.cookie-banner-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+.cookie-banner-actions button {
+  border: 1px solid var(--line-on-dark);
+  background: none;
+  color: var(--cream);
+  padding: 0.55rem 1.15rem;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+#cookie-refuse:hover { border-color: var(--cream); }
+#cookie-accept {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--charcoal);
+  font-weight: 600;
+}
+#cookie-accept:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
 .lightbox-prev { left: 1rem; }
 .lightbox-next { right: 1rem; }
 .lightbox-prev[hidden],
