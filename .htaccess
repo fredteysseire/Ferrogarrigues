@@ -1,0 +1,153 @@
+# Redirections 301 : ancien site WordPress (Ferronnerie des Garrigues / Digital Sunrise)
+# vers le nouveau site FMG Metal Studio. Objectif : conserver le référencement acquis
+# plutôt que de le perdre en laissant ces anciennes URL en 404.
+
+# --- Doublon technique ---
+Redirect 301 /index.html https://ferrogarrigues.fr/
+
+# --- Pages principales de l'ancien site ---
+Redirect 301 /ferronnerie-des-garrigues/ https://ferrogarrigues.fr/atelier.html
+Redirect 301 /nos-realisations/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /portails-et-portillons/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /pergolas/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /garde-corps-rampes/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /verrieres/ https://ferrogarrigues.fr/pleine-lumiere.html
+Redirect 301 /escaliers-et-mezzanines/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /meubles/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /actualites/ https://ferrogarrigues.fr/actualites.html
+Redirect 301 /contact-devis/ https://ferrogarrigues.fr/contact.html
+Redirect 301 /realisations/pergolas/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /realisations/divers/ https://ferrogarrigues.fr/realisations.html
+
+# --- Anciennes fiches réalisations à conserver/refaire (redirection provisoire
+# vers la catégorie correspondante, en attendant une décision sur des pages dédiées) ---
+Redirect 301 /verriere-interieure-en-acier-sur-mesure-a-montferrier-sur-lez/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /escalier-colimacon-avec-claustra-montferrier-sur-lez-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /porte-sur-pivot-marseille-bouches-du-rhone-13/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-mauguio-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /pergola-moderne-saint-tropez-var-83/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /gardes-corps-inox-la-coix-valmer-var-83/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+
+# --- Anciennes fiches : Portails & clôtures ---
+Redirect 301 /portail-coulissant-aluminium-rochefort-du-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /cloture-bambous-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-nimes-gard-30-5/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-cazevieille-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-marseille-bouches-du-rhone-13/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-comps-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-battant-blauzac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-nimes-gard-30-4/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-nages-et-solorgues-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-et-portillon-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-cabrieres-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-aubord-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portails-coulissants-montfrin-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-battant-et-portillon-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-nimes-gard-30-3/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-aluminium-meynes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-moderne-quissac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portillon-acier-moderne-quissac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-battant-aluminium-uchaud-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-nimes-gard-30-2/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-acier-battant-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portillon-acier-moderne-fuveau-bouches-rhone-13/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-aluminium-lunel-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-coulissant-moderne-fuveau-bouches-rhone-13/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portillons-acier-aluminium-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portillon-acier-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /installation-toles-brise-vue-portail-existant/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portillon-brise-vue-persiennes-acier/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-aluminium-coulissant-automatique/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-acier-battant/ https://ferrogarrigues.fr/realisations.html?filter=portails
+Redirect 301 /portail-acier-coulissant-automatique/ https://ferrogarrigues.fr/realisations.html?filter=portails
+
+# --- Anciennes fiches : Pergolas ---
+Redirect 301 /pergola-sur-mesure-generac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-clarensac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-domazan-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-vendargues-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-metal-et-bois-roquebrune-sur-argens-var-83/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-et-gardes-corps-aluminium-cabrieres-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-aluminium-saint-quentin-la-porterie-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-aluminium-orthoux-serignac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-acier-et-bois-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-aluminium-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-aluminium-vlm-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-aluminium-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-aluminium/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-moderne-generac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-aluminium-ales-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-acier-calvisson-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-acier-langlade-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-aluminium-beaulieu-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+Redirect 301 /pergola-en-aluminium/ https://ferrogarrigues.fr/realisations.html?filter=pergolas
+
+# --- Anciennes fiches : Garde-corps ---
+Redirect 301 /garde-corps-nimes-rampe-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /garde-corps-ales-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /gardes-corps-remoulins-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /gardes-corps-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /gardes-corps-blauzac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /gardes-corps-nages-et-solorgues-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /gardes-corps-montfrin-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /gardes-corps-saint-dionizy-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /gardes-corps-moderne-beauvoisin-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /gardes-corps-montpellier-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /garde-corps-piscine-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /garde-corps-acier-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /garde-corps-escalier-garons-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /garde-corps-acier-avene-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /garde-corps-verre-langlade-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /garde-corps-acier/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /garde-corps-acier-2/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+Redirect 301 /garde-corps-acier-terrasse/ https://ferrogarrigues.fr/realisations.html?filter=garde-corps
+
+# --- Anciennes fiches : Verrières / menuiseries acier ---
+Redirect 301 /menuiseries-et-verrieres-exterieures-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-montferrier-sur-lez-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-atelier-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-aubais-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-villeneuve-lez-avignon-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-acier-uzes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-atelier-clarensac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-interieure-caveirac-gard-30-2/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-type-atelier-montpellier-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-interieure-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+Redirect 301 /verriere-exterieure-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=verrieres
+
+# --- Anciennes fiches : Escaliers & mezzanines ---
+Redirect 301 /escalier-metal-bois-saint-christol-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /escalier-et-mezzanine-lecques-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /escalier-suspendu-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /rampe-escalier-vaison-la-romaine-vaucluse-84/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /escalier-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /mezzanine-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /rampe-descalier-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /mezzanine-escalier-montpellier-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /escaliers-metal-castelnau-lez-herault-34/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /marche-descalier-moderne/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+Redirect 301 /rampe-descalier-interieur/ https://ferrogarrigues.fr/realisations.html?filter=escaliers
+
+# --- Anciennes fiches : ouvrages divers (vers le portfolio général) ---
+Redirect 301 /claustra-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /carport-sur-mesure-pujaut-gard-30/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /pied-de-table-monferrier-sur-lez-herault-34/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /claustra-marseille-bouches-du-rhone-13/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /abri-voiture-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /abri-metal-nages-et-solorgues-gard-30/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /terrasse-suspendue-en-acier-et-bois-caveirac-gard-30/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /grilles-de-defense-saint-aunes-herault-34/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /mini-bar-inox-brosse-clarensac-gard-30/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /table-type-industriel-metal-bois-hevea/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /grille-de-porte-langlade-garde-30/ https://ferrogarrigues.fr/realisations.html
+Redirect 301 /grilles-de-defense-acier-nimes-gard-30/ https://ferrogarrigues.fr/realisations.html
+
+# --- Contenus hors positionnement actuel : supprimés définitivement (410 Gone) ---
+Redirect gone /restauration-dune-vieille-remorque-plateau/
+Redirect gone /galerie-utilitaire-fiat-doblo-maxi/
+
