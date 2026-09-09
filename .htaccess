@@ -3,7 +3,16 @@
 # plutôt que de le perdre en laissant ces anciennes URL en 404.
 
 # --- Doublon technique ---
-Redirect 301 /index.html https://ferrogarrigues.fr/
+# Note : on utilise mod_rewrite avec THE_REQUEST (et non mod_alias "Redirect", qui
+# provoque une boucle infinie sur ce type d'hébergement : la résolution interne de
+# index.html pour "/" repasse par la même règle et se redirige indéfiniment vers
+# elle-même). THE_REQUEST contient la requête HTTP brute du client et n'est donc
+# jamais déclenché par cette résolution interne.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://ferrogarrigues.fr/ [R=301,L]
+</IfModule>
 
 # --- Pages principales de l'ancien site ---
 Redirect 301 /ferronnerie-des-garrigues/ https://ferrogarrigues.fr/atelier.html
