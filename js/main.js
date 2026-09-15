@@ -63,6 +63,41 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => scrollByCard(1));
   }
 
+  // Compteur de vues par réalisation (badge "X vues" affiché sur chaque carte,
+  // incrémenté une seule fois par visiteur et par réalisation, via api/views.php).
+  const setViewBadge = (card, count) => {
+    if (!count) return;
+    let badge = card.querySelector('.pc-views');
+    if (!badge) {
+      const overlay = card.querySelector('.pc-overlay');
+      if (!overlay) return;
+      badge = document.createElement('span');
+      badge.className = 'pc-views';
+      overlay.appendChild(badge);
+    }
+    badge.textContent = `${count} vue${count > 1 ? 's' : ''}`;
+  };
+
+  const viewCards = document.querySelectorAll('.project-card[data-id]');
+  if (viewCards.length) {
+    fetch('api/views.php')
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((counts) => viewCards.forEach((card) => setViewBadge(card, counts[card.dataset.id])))
+      .catch(() => {});
+  }
+
+  const trackView = (card) => {
+    const id = card.dataset.id;
+    if (!id) return;
+    const seenKey = `fmg-viewed-${id}`;
+    if (sessionStorage.getItem(seenKey)) return;
+    sessionStorage.setItem(seenKey, '1');
+    fetch('api/views.php', { method: 'POST', body: new URLSearchParams({ id }) })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => { if (data) setViewBadge(card, data.count); })
+      .catch(() => {});
+  };
+
   // Fiche détaillée des réalisations : clic sur une carte -> description, localisation, galerie
   const modal = document.getElementById('project-modal');
   if (modal) {
@@ -97,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (!images.length) return;
       index = 0;
+      trackView(card);
       const filterEl = document.querySelector(`.filters [data-filter="${card.dataset.category}"]`);
       const filterLabel = filterEl
         ? (filterEl.tagName === 'INPUT' ? filterEl.closest('label')?.textContent.trim() : filterEl.textContent)

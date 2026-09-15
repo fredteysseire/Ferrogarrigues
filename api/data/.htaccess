@@ -1,0 +1,2 @@
+# Empêche l'accès direct au fichier de stockage des compteurs de vues.
+Require all denied

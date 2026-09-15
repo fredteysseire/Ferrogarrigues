@@ -451,6 +451,14 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   color: var(--cream-2);
   opacity: 0.85;
 }
+.pc-views {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--cream-2);
+  opacity: 0.65;
+  margin-top: 0.2rem;
+}
 .project-card-empty .pc-overlay h3,
 .project-card-empty .pc-location { color: var(--steel); opacity: 1; }
 .project-card-empty .pc-overlay { background: none; position: static; padding-top: 0.75rem; }
