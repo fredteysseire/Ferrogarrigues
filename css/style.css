@@ -848,6 +848,15 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   color: var(--accent-dark);
   font-style: italic;
 }
+.rdv-notice {
+  margin-top: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border-left: 3px solid var(--accent);
+  background: var(--cream-2);
+  color: var(--charcoal) !important;
+  font-size: 0.82rem !important;
+  line-height: 1.4;
+}
 
 .form-note { font-size: 0.82rem; color: var(--steel); margin-top: 0.75rem; }
 

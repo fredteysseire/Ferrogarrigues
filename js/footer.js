@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="tel:+33661067375">06 61 06 73 75</a></li>
             <li><a href="https://wa.me/33661067375" target="_blank" rel="noopener">WhatsApp</a></li>
             <li><a href="mailto:contact@ferrogarrigues.fr">contact@ferrogarrigues.fr</a></li>
-            <li>305 chemin de la Gravière<br>30210 Sernhac</li>
+            <li>Impasse de Calvas<br>30000 Nîmes</li>
             <li>Gard, Hérault, Vaucluse, Bouches-du-Rhône, Côte d'Azur, déplacements France entière selon projet</li>
           </ul>
           <div class="social-icons" style="margin-top: 1rem;">
