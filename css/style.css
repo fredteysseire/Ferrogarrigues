@@ -955,3 +955,15 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 
 .center { text-align: center; margin-left: auto; margin-right: auto; }
 .mt-lg { margin-top: clamp(2.5rem, 5vw, 4rem); }
+
+/* ---------- Page légale ---------- */
+
+.legal-content { max-width: 70ch; }
+.legal-content h2 {
+  font-size: 1.3rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.legal-content h2:first-child { margin-top: 0; }
+.legal-content p { color: var(--steel); margin-bottom: 0.9rem; line-height: 1.6; }
+.legal-content ul { margin: 0 0 0.9rem 1.2rem; color: var(--steel); line-height: 1.7; }

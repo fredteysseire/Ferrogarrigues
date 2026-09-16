@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="footer-bottom">
         <span>© ${year} FMG Metal Studio. Tous droits réservés.</span>
         <span>Pleine Lumière® est une marque déposée de FMG Metal Studio.</span>
+        <span><a href="mentions-legales.html">Mentions légales &amp; confidentialité</a></span>
       </div>
     </div>
     <a href="https://wa.me/33661067375" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Discuter sur WhatsApp">

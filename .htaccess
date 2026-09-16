@@ -15,6 +15,7 @@ RewriteRule ^index\.html$ https://ferrogarrigues.fr/ [R=301,L]
 </IfModule>
 
 # --- Pages principales de l'ancien site ---
+Redirect 301 /mentions-legales/ https://ferrogarrigues.fr/mentions-legales.html
 Redirect 301 /ferronnerie-des-garrigues/ https://ferrogarrigues.fr/atelier.html
 Redirect 301 /nos-realisations/ https://ferrogarrigues.fr/realisations.html
 Redirect 301 /portails-et-portillons/ https://ferrogarrigues.fr/realisations.html?filter=portails
