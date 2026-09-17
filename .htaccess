@@ -1,18 +1,58 @@
+# =========================================================
+# Canonicalisation du domaine + nettoyage de l'ancien WordPress
+# =========================================================
+DirectoryIndex index.html
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 1. Une seule version du domaine : https://ferrogarrigues.fr (https, sans www)
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^ferrogarrigues\.fr$ [NC]
+RewriteRule ^ https://ferrogarrigues.fr%{REQUEST_URI} [R=301,L,NE]
+
+# 2. Doublon technique /index.html -> /
+# Note : on utilise THE_REQUEST (et non mod_alias "Redirect", qui provoque une
+# boucle infinie sur ce type d'hébergement : la résolution interne de index.html
+# pour "/" repasse par la même règle et se redirige indéfiniment vers elle-même).
+# THE_REQUEST contient la requête HTTP brute du client et n'est donc jamais
+# déclenché par cette résolution interne. Testé de bout en bout avec un vrai
+# Apache + mod_rewrite (http/https × www/non-www) avant mise en production.
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://ferrogarrigues.fr/ [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/index\.php[\s?] [NC]
+RewriteRule ^index\.php$ https://ferrogarrigues.fr/ [R=301,L]
+
+# 3. Anciennes paginations WordPress
+RewriteRule ^page/[0-9]+/?$ https://ferrogarrigues.fr/actualites.html [R=301,L]
+RewriteRule ^realisations/[^/]+/page/[0-9]+/?$ https://ferrogarrigues.fr/realisations.html [R=301,L]
+
+# 4. Anciennes URL WordPress utilisant des paramètres (?p=123, ?page_id=45, ?s=...)
+RewriteCond %{QUERY_STRING} (^|&)(p|page_id|attachment_id|author)= [NC,OR]
+RewriteCond %{QUERY_STRING} (^|&)(s|rest_route)= [NC]
+RewriteRule ^ - [G,L]
+
+# 5. Anciennes taxonomies WordPress : aucun équivalent utile sur le nouveau site
+RewriteRule ^(?:author|tag|category)(?:/|$) - [G,L]
+
+# 6. Reliquats d'infrastructure WordPress
+RewriteRule ^(?:wp-admin|wp-json)(?:/|$) - [G,L]
+RewriteRule ^(?:wp-login\.php|xmlrpc\.php|wp-cron\.php)$ - [G,L]
+RewriteRule ^feed/?$ - [G,L]
+RewriteRule ^comments/feed/?$ - [G,L]
+</IfModule>
+
+# 7. Anciens sitemaps WordPress
+Redirect 301 /wp-sitemap.xml https://ferrogarrigues.fr/sitemap.xml
+Redirect 301 /sitemap_index.xml https://ferrogarrigues.fr/sitemap.xml
+
+# =========================================================
 # Redirections 301 : ancien site WordPress (Ferronnerie des Garrigues / Digital Sunrise)
 # vers le nouveau site FMG Metal Studio. Objectif : conserver le référencement acquis
 # plutôt que de le perdre en laissant ces anciennes URL en 404.
-
-# --- Doublon technique ---
-# Note : on utilise mod_rewrite avec THE_REQUEST (et non mod_alias "Redirect", qui
-# provoque une boucle infinie sur ce type d'hébergement : la résolution interne de
-# index.html pour "/" repasse par la même règle et se redirige indéfiniment vers
-# elle-même). THE_REQUEST contient la requête HTTP brute du client et n'est donc
-# jamais déclenché par cette résolution interne.
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
-RewriteRule ^index\.html$ https://ferrogarrigues.fr/ [R=301,L]
-</IfModule>
+# =========================================================
 
 # --- Pages principales de l'ancien site ---
 Redirect 301 /mentions-legales/ https://ferrogarrigues.fr/mentions-legales.html
