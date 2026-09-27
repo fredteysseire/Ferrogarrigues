@@ -92,13 +92,14 @@
         (ordre du plus récent au plus ancien), en reprenant exactement le modèle ci-dessous.
         data-eyebrow = type d'actualité affiché en fiche détaillée (ex. "Chantier obtenu",
         "Partenariat", "Vie de l'atelier", "Distinction"). data-location = date de publication,
-        au format "26 août 2026". data-description = texte complet de l'article. data-images =
+        au format "26 août 2026". data-id = identifiant unique
+        du compteur de vues (préfixe "actu-", minuscules, chiffres et tirets). data-description = texte complet de l'article. data-images =
         une ou plusieurs photos (JSON, voir realisations.html pour la syntaxe et l'échappement
         des apostrophes en &#39;). Au-delà de 9 articles sur cette page, dupliquez ce fichier en
         actualites-2.html et reliez les deux pages via <nav class="pagination"> plus bas.
 
         MODÈLE (à dupliquer et remplir) :
-        <article class="project-card" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
+        <article class="project-card" data-id="actu-slug-unique" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
           data-eyebrow="Chantier obtenu"
           data-location="JJ mois AAAA"
           data-description="Texte complet de l'article."
@@ -113,7 +114,7 @@
       -->
       <div class="grid-3 project-grid" id="actualites-grid">
 
-        <article class="project-card" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
+        <article class="project-card" data-id="actu-the-coffee-nimes-kiosque" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
           data-eyebrow="Nouvelle adresse à Nîmes"
           data-location="Septembre 2026"
           data-description="Nîmes compte une nouvelle adresse café : THE COFFEE vient d&#39;ouvrir ses portes en centre-ville, et FMG Metal Studio est fier d&#39;avoir participé au projet. Notre atelier a conçu, fabriqué et posé la menuiserie kiosque de la boutique, entièrement sur mesure : un comptoir de vente à emporter ouvert directement sur la rue, avec son ouvrant relevable formant auvent. Chaque détail a été dessiné pour respecter les contraintes visuelles et fonctionnelles de la marque, de ses lignes épurées d&#39;inspiration japonaise à ses teintes chaudes, tout en garantissant un service fluide au quotidien. Un projet qui illustre notre savoir-faire auprès des commerces, cafés et enseignes qui font vivre le cœur de Nîmes. Passez découvrir cette nouvelle adresse nîmoise, et le kiosque qui l&#39;accompagne."
@@ -128,7 +129,7 @@
           </div>
         </article>
 
-        <article class="project-card" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
+        <article class="project-card" data-id="actu-marche-panorama-nimes" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
           data-eyebrow="Chantier obtenu"
           data-location="Mai 2026"
           data-description="FMG Metal Studio a remporté le lot métallerie et serrurerie du programme Panorama à Nîmes, un immeuble de commerces et de bureaux recevant du public, en collaboration avec l&#39;architecte SOZO Architecture. Notre atelier prend en charge la fabrication et la pose des garde-corps, pergolas, portes métalliques et escaliers de l&#39;ensemble du bâtiment. Un chantier exigeant, mené dans le cadre réglementaire strict d&#39;un ERP (établissement recevant du public), qui confirme notre capacité à intervenir sur des programmes tertiaires d&#39;envergure dans le respect des normes de sécurité en vigueur."
@@ -146,7 +147,7 @@
           </div>
         </article>
 
-        <article class="project-card" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
+        <article class="project-card" data-id="actu-marche-ferme-ecole-nimes" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
           data-eyebrow="Chantier obtenu"
           data-location="Mai 2026"
           data-description="FMG Metal Studio a remporté le marché public de la Ferme École à Nîmes, pour le compte de la Mairie de Nîmes, en collaboration avec l&#39;architecte MN Lab. Notre atelier est en charge du lot serrurerie complet : portes, portails, garde-corps, pergolas et porte de garage. Un projet qui illustre notre capacité à répondre aux exigences techniques et de délai des marchés publics, tout en conservant la qualité d&#39;exécution artisanale qui nous caractérise."
@@ -165,7 +166,7 @@
           </div>
         </article>
 
-        <article class="project-card" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
+        <article class="project-card" data-id="actu-moulin-panery-uzes" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
           data-eyebrow="Chantier prestigieux"
           data-location="Mars 2025"
           data-description="FMG Metal Studio a été retenu sur le lot métallerie et serrurerie du moulin oléicole du Domaine de Panery, à Pouzilhac, aux portes d&#39;Uzès dans le Gard, en collaboration avec Fazenda Architecture. Un chantier hors norme, à la hauteur de l&#39;exigence architecturale du lieu : l&#39;un des plus grands murs rideaux réalisés à ce jour en profilés acier JANSEN à forte inertie, avec la prouesse technique d&#39;un angle vitré de 5 mètres de hauteur sans montant intermédiaire et des vitrages de plus d&#39;une tonne pièce. S&#39;y ajoutent des verrières intérieures monumentales et des portes à galandage de plus de 4 mètres de haut, collection Pleine Lumière®. Un projet qui illustre notre capacité à accompagner architectes et maîtres d&#39;ouvrage sur des programmes d&#39;exception, pour des domaines viticoles, oléicoles et propriétés de prestige exigeant le plus haut niveau de savoir-faire en menuiserie acier sur mesure."
