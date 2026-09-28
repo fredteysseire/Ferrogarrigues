@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pmPrev = document.getElementById('pm-prev');
     const pmNext = document.getElementById('pm-next');
     const pmClose = document.getElementById('pm-close');
+    const pmMore = document.getElementById('pm-more');
 
     let images = [];
     let index = 0;
@@ -141,6 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
       pmTitle.textContent = card.querySelector('h3')?.textContent || '';
       pmLocation.textContent = card.dataset.location || '';
       pmDesc.textContent = card.dataset.description || '';
+      if (pmMore) {
+        pmMore.hidden = !card.dataset.href;
+        if (card.dataset.href) pmMore.href = card.dataset.href;
+      }
       render();
       lastFocused = document.activeElement;
       modal.hidden = false;
@@ -155,7 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.querySelectorAll('.project-card[data-images]').forEach((card) => {
-      card.addEventListener('click', () => open(card));
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        open(card);
+      });
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();

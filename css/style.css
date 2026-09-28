@@ -459,6 +459,15 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   opacity: 0.65;
   margin-top: 0.2rem;
 }
+.pc-link {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  margin-top: 0.4rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .project-card-empty .pc-overlay h3,
 .project-card-empty .pc-location { color: var(--steel); opacity: 1; }
 .project-card-empty .pc-overlay { background: none; position: static; padding-top: 0.75rem; }
@@ -479,6 +488,7 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   overflow-y: auto;
 }
 .project-modal[hidden] { display: none; }
+#pm-more[hidden] { display: none; }
 
 .pm-inner {
   background: var(--cream);

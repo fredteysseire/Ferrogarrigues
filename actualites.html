@@ -92,7 +92,8 @@
         (ordre du plus récent au plus ancien), en reprenant exactement le modèle ci-dessous.
         data-eyebrow = type d'actualité affiché en fiche détaillée (ex. "Chantier obtenu",
         "Partenariat", "Vie de l'atelier", "Distinction"). data-location = date de publication,
-        au format "26 août 2026". data-id = identifiant unique
+        au format "26 août 2026". data-href (facultatif) = page dédiée de l'article,
+        affichée en lien "Lire l'article complet" dans la fiche détaillée. data-id = identifiant unique
         du compteur de vues (préfixe "actu-", minuscules, chiffres et tirets). data-description = texte complet de l'article. data-images =
         une ou plusieurs photos (JSON, voir realisations.html pour la syntaxe et l'échappement
         des apostrophes en &#39;). Au-delà de 9 articles sur cette page, dupliquez ce fichier en
@@ -116,15 +117,20 @@
 
         <article class="project-card" data-id="actu-the-coffee-nimes-kiosque" data-category="actu" tabindex="0" role="button" aria-haspopup="dialog"
           data-eyebrow="Nouvelle adresse à Nîmes"
-          data-location="Septembre 2026"
-          data-description="Nîmes compte une nouvelle adresse café : THE COFFEE vient d&#39;ouvrir ses portes en centre-ville, et FMG Metal Studio est fier d&#39;avoir participé au projet. Notre atelier a conçu, fabriqué et posé la menuiserie kiosque de la boutique, entièrement sur mesure : un comptoir de vente à emporter ouvert directement sur la rue, avec son ouvrant relevable formant auvent. Chaque détail a été dessiné pour respecter les contraintes visuelles et fonctionnelles de la marque, de ses lignes épurées d&#39;inspiration japonaise à ses teintes chaudes, tout en garantissant un service fluide au quotidien. Un projet qui illustre notre savoir-faire auprès des commerces, cafés et enseignes qui font vivre le cœur de Nîmes. Passez découvrir cette nouvelle adresse nîmoise, et le kiosque qui l&#39;accompagne."
+          data-location="28 septembre 2026"
+          data-href="menuiserie-kiosque-the-coffee-nimes.html"
+          data-description="Nîmes compte une nouvelle adresse café : THE COFFEE s&#39;installe rue du Grand Couvent, en plein centre-ville. Pour son comptoir de vente à emporter ouvert sur la rue, FMG Metal Studio a conçu et fabriqué une menuiserie kiosque entièrement sur mesure, pensée pour respecter les contraintes visuelles et fonctionnelles de l&#39;enseigne. Son ouvrant vitré bascule à l&#39;horizontale vers le haut : il libère toute la baie pour le service, forme un auvent au-dessus du comptoir et reste au-dessus de la tête des passants, laissant la rue piétonne entièrement libre. La finition thermolaquée RAL 1011, un brun beige chaud, s&#39;accorde à la devanture et aux boiseries de la boutique tout en résistant aux intempéries et à un usage quotidien. Passez découvrir cette nouvelle adresse nîmoise et son kiosque."
           data-images='[
-            {"src":"assets/img/the-coffee-nimes-kiosque-01.webp","alt":"Menuiserie kiosque sur mesure avec ouvrant relevable, façade du café THE COFFEE, Nîmes"}
+            {"src":"assets/img/the-coffee-nimes-menuiserie-kiosque-01.webp","alt":"Menuiserie kiosque thermolaquée RAL 1011, ouvrant vitré relevé à l&#39;horizontale, café THE COFFEE à Nîmes"},
+            {"src":"assets/img/the-coffee-nimes-menuiserie-kiosque-02.webp","alt":"Kiosque de vente à emporter du café THE COFFEE, ouvrant relevé formant auvent, rue du Grand Couvent, Nîmes"},
+            {"src":"assets/img/the-coffee-nimes-menuiserie-kiosque-03.webp","alt":"Façade du café THE COFFEE avec sa menuiserie kiosque sur mesure, centre-ville de Nîmes"},
+            {"src":"assets/img/the-coffee-nimes-menuiserie-kiosque-04.webp","alt":"Devanture du café THE COFFEE et menuiserie kiosque thermolaquée RAL 1011, rue piétonne du centre de Nîmes"}
           ]'>
-          <div class="pc-media ph ph-portrait"><img src="assets/img/the-coffee-nimes-kiosque-01.webp" alt="Menuiserie kiosque sur mesure avec ouvrant relevable, façade du café THE COFFEE, Nîmes" loading="lazy">
+          <div class="pc-media ph ph-portrait"><img src="assets/img/the-coffee-nimes-menuiserie-kiosque-01.webp" alt="Menuiserie kiosque thermolaquée RAL 1011, ouvrant vitré relevé à l&#39;horizontale, café THE COFFEE à Nîmes" loading="lazy">
             <div class="pc-overlay">
-              <h3>THE COFFEE ouvre à Nîmes : notre menuiserie kiosque sur mesure</h3>
-              <span class="pc-location">Septembre 2026</span>
+              <h3>THE COFFEE ouvre au centre de Nîmes : notre menuiserie kiosque sur mesure</h3>
+              <span class="pc-location">28 septembre 2026</span>
+              <a class="pc-link" href="menuiserie-kiosque-the-coffee-nimes.html">Lire l'article complet →</a>
             </div>
           </div>
         </article>
@@ -214,6 +220,7 @@
       <h2 id="pm-title"></h2>
       <p class="pm-location" id="pm-location"></p>
       <p class="pm-desc" id="pm-desc"></p>
+      <a href="#" class="btn btn-outline mt-lg" id="pm-more" hidden>Lire l'article complet</a>
       <a href="contact.html" class="btn btn-primary mt-lg">Discuter d'un projet similaire</a>
     </div>
   </div>
