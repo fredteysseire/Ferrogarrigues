@@ -926,6 +926,22 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   display: flex;
   justify-content: center;
 }
+.insta-placeholder {
+  width: 100%;
+  max-width: 502px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem;
+  text-align: center;
+  background: var(--cream-2);
+  border: 1px solid var(--line);
+  color: var(--steel);
+  font-size: 0.92rem;
+}
 .insta-embed iframe {
   display: block;
   width: 100%;
