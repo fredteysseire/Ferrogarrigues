@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyFilters = () => {
       const active = Array.from(filterInputs).filter((i) => i.checked).map((i) => i.dataset.filter);
       projects.forEach((card) => {
-        const match = active.length === 0 || active.includes(card.dataset.category);
+        // data-category peut contenir plusieurs catégories séparées par des espaces.
+        const categories = card.dataset.category.split(' ');
+        const match = active.length === 0 || categories.some((c) => active.includes(c));
         card.hidden = !match;
       });
       if (filtersReset) filtersReset.hidden = active.length === 0;
@@ -134,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!images.length) return;
       index = 0;
       trackView(card);
-      const filterEl = document.querySelector(`.filters [data-filter="${card.dataset.category}"]`);
+      const filterEl = document.querySelector(`.filters [data-filter="${card.dataset.category.split(' ')[0]}"]`);
       const filterLabel = filterEl
         ? (filterEl.tagName === 'INPUT' ? filterEl.closest('label')?.textContent.trim() : filterEl.textContent)
         : '';
