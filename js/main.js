@@ -184,6 +184,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Formulaire de contact : le champ "honeypot" filtre une partie du spam,
-  // l'envoi réel est géré par le service configuré dans l'attribut action (voir README).
+  // Formulaire de contact (envoi par api/contact.php) : affiche le message d'erreur au retour
+  // d'un envoi échoué (contact.html?envoi=erreur) et bloque le double clic pendant l'envoi.
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const formError = document.getElementById('form-error');
+    if (formError && new URLSearchParams(window.location.search).get('envoi') === 'erreur') {
+      formError.hidden = false;
+    }
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const submitLabel = submitBtn ? submitBtn.textContent : '';
+    contactForm.addEventListener('submit', () => {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours…';
+      }
+    });
+    // Retour arrière du navigateur : la page restaurée depuis le cache garde le bouton bloqué.
+    window.addEventListener('pageshow', () => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitLabel;
+      }
+    });
+  }
 });

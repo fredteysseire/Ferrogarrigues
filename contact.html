@@ -115,35 +115,34 @@
   <section>
     <div class="wrap contact-grid">
 
-      <form id="contact-form" action="https://formsubmit.co/5d2b59be1c3d912d3389ad6d891c5b00" method="POST">
-        <input type="hidden" name="_subject" value="Nouvelle demande, site FMG Metal Studio">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <form id="contact-form" action="api/contact.php" method="POST">
+        <p class="form-error" id="form-error" role="alert" hidden>Votre message n'a pas pu être envoyé. Vérifiez votre email puis réessayez, ou contactez-nous directement au <a href="tel:+33661067375">06 61 06 73 75</a> ou à <a href="mailto:contact@ferrogarrigues.fr">contact@ferrogarrigues.fr</a>.</p>
+        <input type="text" name="site_web" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="field">
           <label for="name">Nom &amp; prénom</label>
-          <input type="text" id="name" name="Nom" required autocomplete="name">
+          <input type="text" id="name" name="nom" required autocomplete="name">
         </div>
 
         <div class="grid-2">
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="Email" required autocomplete="email">
+            <input type="email" id="email" name="email" required autocomplete="email">
           </div>
           <div class="field">
             <label for="phone">Téléphone</label>
-            <input type="tel" id="phone" name="Téléphone" required autocomplete="tel">
+            <input type="tel" id="phone" name="telephone" required autocomplete="tel">
           </div>
         </div>
 
         <div class="field">
           <label for="location">Lieu du chantier</label>
-          <input type="text" id="location" name="Lieu du chantier" required placeholder="Ville, code postal">
+          <input type="text" id="location" name="lieu" required placeholder="Ville, code postal">
         </div>
 
         <div class="field">
           <label for="project">Type de projet</label>
-          <select id="project" name="Type de projet">
+          <select id="project" name="projet">
             <option>Garde-corps / rambarde</option>
             <option>Portail / clôture</option>
             <option>Escalier métallique</option>
@@ -155,7 +154,7 @@
 
         <div class="field">
           <label for="message">Votre message</label>
-          <textarea id="message" name="Message" required></textarea>
+          <textarea id="message" name="message" required></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Envoyer le message</button>

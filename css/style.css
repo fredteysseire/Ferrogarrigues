@@ -869,6 +869,15 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 }
 
 .form-note { font-size: 0.82rem; color: var(--steel); margin-top: 0.75rem; }
+#contact-form { scroll-margin-top: 6rem; }
+.form-error {
+  margin-bottom: 1.4rem;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid #b3261e;
+  background: var(--cream-2);
+  color: var(--charcoal);
+  font-size: 0.9rem;
+}
 
 /* ---------- Social ---------- */
 
