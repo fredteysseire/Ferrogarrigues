@@ -70,11 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // data-src ne sont chargées qu'au moment d'être affichées, pour garder une page légère.
   const slideshow = document.querySelector('[data-slideshow]');
   if (slideshow) {
-    const slides = [...slideshow.querySelectorAll('.slideshow-item')];
+    // Renouvellement hebdomadaire : la liste du HTML est un réservoir ; chaque lundi (UTC), on
+    // affiche le lot suivant de N photos, à tour de rôle, pour que toutes passent au fil des semaines.
+    const pool = [...slideshow.querySelectorAll('.slideshow-item')];
+    const perWeek = Math.min(pool.length, parseInt(slideshow.dataset.slideshowPerWeek, 10) || pool.length);
+    const LUNDI_REF = Date.UTC(1970, 0, 5);
+    const week = Math.floor((Date.now() - LUNDI_REF) / (7 * 24 * 3600 * 1000));
+    const start = (week * perWeek) % pool.length;
+    const slides = Array.from({ length: perWeek }, (_, i) => pool[(start + i) % pool.length]);
+    pool.forEach((s) => { if (!slides.includes(s)) s.remove(); });
+    slides.forEach((s) => slideshow.querySelector('.slideshow-track').appendChild(s));
     const dotsBox = slideshow.querySelector('[data-slideshow-dots]');
     const pauseBtn = slideshow.querySelector('[data-slideshow-pause]');
     const DELAI = 4500;
-    let current = Math.max(0, slides.findIndex((s) => s.classList.contains('is-active')));
+    let current = 0;
     let timer = null;
     let paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let hovered = false;
