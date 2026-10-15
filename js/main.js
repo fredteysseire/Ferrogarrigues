@@ -65,6 +65,67 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => scrollByCard(1));
   }
 
+  // Diaporama photo de l'accueil : défilement automatique (pause au survol, au focus clavier,
+  // via le bouton pause, ou si le visiteur préfère réduire les animations). Les photos en
+  // data-src ne sont chargées qu'au moment d'être affichées, pour garder une page légère.
+  const slideshow = document.querySelector('[data-slideshow]');
+  if (slideshow) {
+    const slides = [...slideshow.querySelectorAll('.slideshow-item')];
+    const dotsBox = slideshow.querySelector('[data-slideshow-dots]');
+    const pauseBtn = slideshow.querySelector('[data-slideshow-pause]');
+    const DELAI = 4500;
+    let current = Math.max(0, slides.findIndex((s) => s.classList.contains('is-active')));
+    let timer = null;
+    let paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let hovered = false;
+
+    const loadSlide = (i) => {
+      const img = slides[i] && slides[i].querySelector('img[data-src]');
+      if (img) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+      }
+    };
+    const dots = slides.map((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Photo ${i + 1} sur ${slides.length}`);
+      dot.addEventListener('click', () => { show(i); restart(); });
+      dotsBox.appendChild(dot);
+      return dot;
+    });
+    const show = (i) => {
+      current = (i + slides.length) % slides.length;
+      loadSlide(current);
+      loadSlide((current + 1) % slides.length);
+      slides.forEach((s, k) => {
+        s.classList.toggle('is-active', k === current);
+        s.setAttribute('aria-hidden', k === current ? 'false' : 'true');
+        s.tabIndex = k === current ? 0 : -1;
+      });
+      dots.forEach((d, k) => d.setAttribute('aria-current', k === current ? 'true' : 'false'));
+    };
+    const restart = () => {
+      clearInterval(timer);
+      timer = null;
+      if (!paused && !hovered && slides.length > 1) timer = setInterval(() => show(current + 1), DELAI);
+    };
+    const updatePauseBtn = () => {
+      pauseBtn.textContent = paused ? '▶' : '❚❚';
+      pauseBtn.setAttribute('aria-label', paused ? 'Reprendre le défilement' : 'Mettre en pause le défilement');
+    };
+    pauseBtn.addEventListener('click', () => { paused = !paused; updatePauseBtn(); restart(); });
+    slideshow.addEventListener('mouseenter', () => { hovered = true; restart(); });
+    slideshow.addEventListener('mouseleave', () => { hovered = false; restart(); });
+    slideshow.addEventListener('focusin', () => { hovered = true; restart(); });
+    slideshow.addEventListener('focusout', () => { hovered = false; restart(); });
+    document.addEventListener('visibilitychange', () => { hovered = document.hidden; restart(); });
+
+    show(current);
+    updatePauseBtn();
+    restart();
+  }
+
   // Compteur de vues par réalisation (badge "X vues" affiché sur chaque carte,
   // incrémenté une seule fois par visiteur et par réalisation, via api/views.php).
   const setViewBadge = (card, count) => {
@@ -196,7 +257,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const submitLabel = submitBtn ? submitBtn.textContent : '';
+    // Anti-robots : temps passé sur la page, vérifié par api/contact.php (les robots postent
+    // directement sans exécuter ce script, ou en quelques millisecondes).
+    const pageOuverte = Date.now();
     contactForm.addEventListener('submit', () => {
+      let verif = contactForm.querySelector('input[name="verif"]');
+      if (!verif) {
+        verif = document.createElement('input');
+        verif.type = 'hidden';
+        verif.name = 'verif';
+        contactForm.appendChild(verif);
+      }
+      verif.value = String(Date.now() - pageOuverte);
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Envoi en cours…';

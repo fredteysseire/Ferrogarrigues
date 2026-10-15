@@ -4,3 +4,4 @@
 # Données générées par api/contact.php (limite anti-spam, demandes dont l'email a échoué).
 /api/data/limite-contact.json
 /api/data/messages-non-envoyes.txt
+/api/data/messages-suspects.txt
