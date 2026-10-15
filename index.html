@@ -98,23 +98,56 @@
         </div>
         <!--
           Diaporama photo (remplace l'ancien flux Instagram SnapWidget) : défile automatiquement,
-          sans service tiers. Pour le mettre à jour : ajouter, retirer ou réordonner les lignes
-          <a class="slideshow-item">. Seule la 1re photo a src= et la classe is-active ; les suivantes
-          utilisent data-src= (chargées une par une par js/main.js, juste avant leur affichage).
-          Conseillé : 8 à 12 photos (au-delà, presque personne ne les voit défiler).
+          sans service tiers. Renouvellement automatique : la liste ci-dessous est un RÉSERVOIR ;
+          chaque semaine (le lundi), js/main.js en affiche 10 différentes, à tour de rôle, si bien que
+          toutes passent à l'accueil au fil des semaines. Pour le mettre à jour : ajouter (de préférence
+          en haut), retirer ou réordonner les lignes <a class="slideshow-item">, toujours avec data-src=.
         -->
-        <div class="slideshow" data-slideshow aria-roledescription="carrousel" aria-label="Quelques réalisations FMG Metal Studio">
+        <div class="slideshow" data-slideshow data-slideshow-per-week="10" aria-roledescription="carrousel" aria-label="Quelques réalisations FMG Metal Studio">
           <div class="slideshow-track">
-            <a class="slideshow-item is-active" href="rooftop-hotel-les-alcyons-le-lavandou.html"><img src="assets/img/rooftop-hotel-les-alcyons-le-lavandou-01.webp" alt="Transats sur le rooftop de l&#39;hôtel Les Alcyons au Lavandou, garde-corps acier anthracite et vue sur la mer"></a>
+            <noscript><a class="slideshow-item is-active" href="rooftop-hotel-les-alcyons-le-lavandou.html"><img src="assets/img/rooftop-hotel-les-alcyons-le-lavandou-01.webp" alt="Transats sur le rooftop de l&#39;hôtel Les Alcyons au Lavandou, garde-corps acier anthracite et vue sur la mer"></a></noscript>
+            <a class="slideshow-item" href="rooftop-hotel-les-alcyons-le-lavandou.html"><img data-src="assets/img/rooftop-hotel-les-alcyons-le-lavandou-01.webp" alt="Transats sur le rooftop de l&#39;hôtel Les Alcyons au Lavandou, garde-corps acier anthracite et vue sur la mer"></a>
             <a class="slideshow-item" href="actualites.html"><img data-src="assets/img/antibes-menuiseries-cintrees-jansen-01.webp" alt="Porte-fenêtre cintrée en profilés acier JANSEN à rupture de pont thermique sous un arc en pierre, villa à Antibes"></a>
             <a class="slideshow-item" href="verriere-interieure-porte-vitree-montferrier-sur-lez.html"><img data-src="assets/img/verriere-porte-vitree-jansen-montferrier-01.webp" alt="Verrière intérieure en profilés acier JANSEN avec porte entièrement vitrée, espace bureau d'une villa d'architecte, Montferrier-sur-Lez"></a>
-            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/garde-corps-inox-lily-croixvalmer-02.webp" alt="Garde-corps inox, hôtel Lily of the Valley, design Philippe Starck, La Croix-Valmer"></a>
             <a class="slideshow-item" href="pergola-claustra-pool-house-caveirac.html"><img data-src="assets/img/pergola-claustra-pool-house-caveirac-01.webp" alt="Pergola acier et claustra aluminium thermolaqués RAL 7016, claustra bois Douglas en couverture, pool house au bord de la piscine, Caveirac (Gard)"></a>
+            <a class="slideshow-item" href="menuiserie-kiosque-the-coffee-nimes.html"><img data-src="assets/img/the-coffee-nimes-menuiserie-kiosque-02.webp" alt="Menuiserie kiosque sur mesure, ouvrant relevé formant auvent, café THE COFFEE, rue du Grand Couvent, Nîmes"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/garde-corps-mas-nages-01.webp" alt="Garde-corps d&#39;escalier extérieur en acier patiné à volutes, mas en rénovation, Nages (Gard)"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/pergola-garrigues-nimes-04.webp" alt="Pergola monumentale sur mesure, 9,5 mètres de portée, villa des Garrigues, Nîmes"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/moulin-panery-verriere-angle-finie-03.webp" alt="Verrière d'angle en acier, vue extérieure, moulin oléicole du Domaine de Panery, Pouzilhac"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/pergola-grange-montpellieraine-01.webp" alt="Pergola sur mesure en paillasson camarguais, terrasse et piscine, la Grange Montpellieraine, Montpellier"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/escalier-tournant-nimes-01.webp" alt="Escalier tournant sur mesure, villa d'architecte, Nîmes"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/pergola-paillasson-ilameena-sainttropez-01.webp" alt="Pergola sur mesure en paillasson camarguais, villa ILAMEENA, Saint-Tropez"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/escalier-saint-christol-01.webp" alt="Escalier architectural acier et bois sur mesure, vue d'ensemble, Saint-Christol"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/portail-coulissant-marseille-02.webp" alt="Vue d'ensemble du portail coulissant 4 x 2,6 m, Marseille"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/verriere-angle-montferrier-01.webp" alt="Verrière intérieure avec verres en angle, maison d'architecte, Montferrier-sur-Lez"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/portail-coulissant-montfrin-02.webp" alt="Portail coulissant sur mesure, motif à caissons, teinte rouille, Montfrin"></a>
             <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/escalier-colimacon-montferrier-01.webp" alt="Escalier colimaçon habillé de claustra, villa d'architecte, Montferrier-sur-Lez"></a>
-            <a class="slideshow-item" href="menuiserie-kiosque-the-coffee-nimes.html"><img data-src="assets/img/the-coffee-nimes-menuiserie-kiosque-01.webp" alt="Menuiserie kiosque thermolaquée RAL 1011, ouvrant vitré relevé à l&#39;horizontale, café THE COFFEE à Nîmes"></a>
-            <a class="slideshow-item" href="pleine-lumiere.html"><img data-src="assets/img/pleine-lumiere-facade-panery-01.webp" alt="Façade en acier Corten et menuiserie acier Pleine Lumière, moulin oléicole du Domaine de Panery"></a>
-            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/portail-corten-nimes-01.webp" alt="Portail coulissant sur mesure en acier Corten, villa d'architecte à Nîmes (Gard)"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/pergola-paillasson-sainttropez-02.webp" alt="Pergola sur mesure et piscine, villa d'exception, Saint-Tropez"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/gardecorps-vitre-mezzanine-nimes-01.webp" alt="Garde-corps vitré sur mezzanine, profils JANSEN, maison de ville rénovée, Nîmes"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/mezzanine-escalier-lecques-01.webp" alt="Escalier quart tournant acier et bois sous mezzanine, Lecques"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/porte-pivot-marseille-01.webp" alt="Porte sur pivot isolée sur mesure, maison d'architecte, Marseille"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/mezzanine-avignon-03.webp" alt="Escalier métallique et garde-corps de mezzanine, Avignon intra-muros"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/pergola-gardecorps-stmartindelondres-03.webp" alt="Pergola métallique sur deux niveaux, thermolaquage brun rouille, Saint-Martin-de-Londres"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/carport-rochefortdugard-03.webp" alt="Carport sur mesure en acier, structure grande portée, Rochefort-du-Gard"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/pied-table-montferrier-02.webp" alt="Pied de table sur mesure en acier, villa d'architecte, Montferrier-sur-Lez"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/garde-corps-inox-lily-croixvalmer-02.webp" alt="Garde-corps inox, hôtel Lily of the Valley, design Philippe Starck, La Croix-Valmer"></a>
             <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/pergolas-royalgreen-roquebrune-04.webp" alt="Vue d'ensemble des pergolas et de la piscine, résidence Royal Green, Var"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/portail-coulissant-nimes-01.webp" alt="Portail coulissant motorisé, habillage caissettes façonnées, thermolaquage sablé, Nîmes"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/menuiserie-acier-mauguio-01.webp" alt="Menuiserie acier à rupture thermique, 3,5 m de hauteur, rénovation d'un mas, Mauguio"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/pergola-caveirac-01.webp" alt="Pergola suspendue en aluminium thermolaqué au-dessus d'une piscine, Caveirac"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/escalier-montpellier-01.webp" alt="Escalier métallique suspendu sur mesure, maison de maître, Montpellier"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/verriere-angle-nimes-01.webp" alt="Verrière d'angle intérieure décorative en acier, Nîmes"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/porte-galandage-panery-pouzilhac-01.webp" alt="Porte à galandage monumentale en acier, verrière Pleine Lumière, Domaine de Panery, Pouzilhac"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/porte-jansen-nimes-01.webp" alt="Porte et verrière intérieure en acier, profils fins JANSEN, maison de maître à Nîmes"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/verriere-monumentale-avignon-02.webp" alt="Extension vitrée monumentale en menuiserie acier sur deux niveaux, centre historique d'Avignon, Palais des Papes"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/verriere-laiton-montpellier-02.webp" alt="Verrière d'intérieur en menuiserie acier finition laiton, profils fins, Montpellier"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/portail-corten-nimes-01.webp" alt="Portail coulissant sur mesure en acier Corten, villa d'architecte à Nîmes (Gard)"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/cloture-ferme-ecole-nimes-01.webp" alt="Clôture en pierre et acier, Ferme École, Nîmes"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/plaque-entree-acier-01.webp" alt="Plaque d'entrée sur mesure en acier thermolaqué, numéro de rue découpé"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/garde-corps-inox-01.webp" alt="Garde-corps d'escalier épuré en acier brut, vue en contre-plongée, Rochefort-du-Gard"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/verriere-acier-01.webp" alt="Verrière d'atelier en menuiserie acier, moulin oléicole, Domaine de Panery, Pouzilhac"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/menuiserie-acier-redessan-01.webp" alt="Menuiserie acier sur mesure, fermeture d'un futur atelier d'artiste, Redessan"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/portail-ferronnerie-01.webp" alt="Portail et portillon en ferronnerie traditionnelle, sous porche en pierre, Sinsans"></a>
           </div>
           <button type="button" class="slideshow-pause" data-slideshow-pause aria-label="Mettre en pause le défilement">❚❚</button>
           <div class="slideshow-dots" data-slideshow-dots></div>
