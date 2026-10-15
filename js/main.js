@@ -196,7 +196,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const submitLabel = submitBtn ? submitBtn.textContent : '';
+    // Anti-robots : temps passé sur la page, vérifié par api/contact.php (les robots postent
+    // directement sans exécuter ce script, ou en quelques millisecondes).
+    const pageOuverte = Date.now();
     contactForm.addEventListener('submit', () => {
+      let verif = contactForm.querySelector('input[name="verif"]');
+      if (!verif) {
+        verif = document.createElement('input');
+        verif.type = 'hidden';
+        verif.name = 'verif';
+        contactForm.appendChild(verif);
+      }
+      verif.value = String(Date.now() - pageOuverte);
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Envoi en cours…';

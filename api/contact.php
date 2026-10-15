@@ -8,6 +8,10 @@
 const DESTINATAIRE = 'contact@ferrogarrigues.fr';
 const EXPEDITEUR = 'contact@ferrogarrigues.fr';
 const MAX_ENVOIS_PAR_HEURE = 10;
+// Délai minimal (ms) entre l'affichage de la page et l'envoi, mesuré par js/main.js (champ « verif »).
+const DELAI_MIN_MS = 3000;
+// Taille max du journal des envois écartés, pour ne jamais remplir l'hébergement.
+const MAX_JOURNAL_SUSPECTS = 2000000;
 
 $dataDir = __DIR__ . '/data';
 
@@ -42,6 +46,40 @@ if ($nom === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)
     retour('contact.html?envoi=erreur#contact-form');
 }
 
+$corps = "Nouvelle demande depuis le site ferrogarrigues.fr\n\n"
+    . "Nom : $nom\n"
+    . "Email : $email\n"
+    . "Téléphone : " . ($telephone !== '' ? $telephone : 'non renseigné') . "\n"
+    . "Lieu du chantier : " . ($lieu !== '' ? $lieu : 'non renseigné') . "\n"
+    . "Type de projet : $projet\n\n"
+    . "Message :\n$message\n";
+
+// Robots : le champ « verif » n'est rempli que par le JavaScript de la page, après un délai
+// humainement plausible. Les robots de spam postent directement sur ce script, sans exécuter
+// la page. Ces envois ne sont pas transmis par email mais conservés dans
+// data/messages-suspects.txt (une vraie demande écartée par erreur reste récupérable).
+$verif = $_POST['verif'] ?? '';
+if (!ctype_digit((string) $verif) || (int) $verif < DELAI_MIN_MS) {
+    $journal = $dataDir . '/messages-suspects.txt';
+    if (@filesize($journal) < MAX_JOURNAL_SUSPECTS) {
+        @file_put_contents(
+            $journal,
+            '=== ' . date('Y-m-d H:i:s') . ' (verif=' . ligne($verif, 20) . ")\n" . $corps . "\n",
+            FILE_APPEND | LOCK_EX
+        );
+    }
+    retour('merci.html');
+}
+
+// Contenu typique du spam (lien dans le message, téléphone impossible, alphabet cyrillique ou
+// asiatique) : la demande est quand même envoyée, mais l'objet est préfixé « [SPAM ?] » pour
+// pouvoir la trier avec une règle de la messagerie.
+$chiffres = preg_replace('/\D+/', '', $telephone);
+$telephoneValide = preg_match('/^0\d{9}$/', $chiffres) || (preg_match('/^\s*(\+|00)/', $telephone) && strlen($chiffres) >= 8 && strlen($chiffres) <= 15);
+$suspect = preg_match('~https?://|www\.~i', $message . ' ' . $nom . ' ' . $lieu)
+    || preg_match('/[\p{Cyrillic}\p{Han}\p{Hangul}]/u', $nom . ' ' . $message)
+    || !$telephoneValide;
+
 // Limite le nombre d'envois par adresse IP (anti-spam), stocké hors base de données.
 $limiteFile = $dataDir . '/limite-contact.json';
 $ipKey = hash('sha256', $_SERVER['REMOTE_ADDR'] ?? '');
@@ -75,15 +113,7 @@ if ($fp) {
     }
 }
 
-$corps = "Nouvelle demande depuis le site ferrogarrigues.fr\n\n"
-    . "Nom : $nom\n"
-    . "Email : $email\n"
-    . "Téléphone : " . ($telephone !== '' ? $telephone : 'non renseigné') . "\n"
-    . "Lieu du chantier : " . ($lieu !== '' ? $lieu : 'non renseigné') . "\n"
-    . "Type de projet : $projet\n\n"
-    . "Message :\n$message\n";
-
-$sujet = mb_encode_mimeheader("Nouvelle demande, site FMG Metal Studio : $nom", 'UTF-8');
+$sujet = mb_encode_mimeheader(($suspect ? '[SPAM ?] ' : '') . "Nouvelle demande, site FMG Metal Studio : $nom", 'UTF-8');
 $entetes = implode("\r\n", [
     'From: ' . mb_encode_mimeheader('Site FMG Metal Studio', 'UTF-8') . ' <' . EXPEDITEUR . '>',
     'Reply-To: ' . $email,
