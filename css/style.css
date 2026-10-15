@@ -920,34 +920,68 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
 .social-follow strong { display: block; font-family: var(--font-display); font-size: 1.1rem; }
 .social-follow span { color: var(--steel); font-size: 0.92rem; }
 
-/* ---------- Instagram (fil en direct SnapWidget) ---------- */
+/* ---------- Diaporama photo (accueil) ---------- */
 
-.insta-embed {
-  display: flex;
-  justify-content: center;
-}
-.insta-placeholder {
+.slideshow {
+  position: relative;
   width: 100%;
   max-width: 502px;
+  margin: 0 auto;
+}
+.slideshow-track {
+  position: relative;
   aspect-ratio: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
-  padding: 2rem;
-  text-align: center;
+  overflow: hidden;
   background: var(--cream-2);
-  border: 1px solid var(--line);
-  color: var(--steel);
-  font-size: 0.92rem;
 }
-.insta-embed iframe {
-  display: block;
+.slideshow-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.9s ease, visibility 0.9s;
+}
+.slideshow-item.is-active { opacity: 1; visibility: visible; }
+.slideshow-item img {
   width: 100%;
-  max-width: 502px;
-  aspect-ratio: 1 / 1;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slideshow-pause {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
   border: none;
+  background: rgba(23, 23, 21, 0.6);
+  color: var(--cream);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.slideshow-pause:hover, .slideshow-pause:focus-visible { background: var(--charcoal); }
+.slideshow-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+.slideshow-dots button {
+  width: 0.6rem;
+  height: 0.6rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--steel);
+  background: transparent;
+  cursor: pointer;
+}
+.slideshow-dots button[aria-current="true"] { background: var(--charcoal); border-color: var(--charcoal); }
+
+@media (prefers-reduced-motion: reduce) {
+  .slideshow-item { transition: none; }
 }
 
 /* ---------- Footer ---------- */

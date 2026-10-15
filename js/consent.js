@@ -5,24 +5,6 @@
   var STORAGE_KEY = 'fmg-cookie-consent';
   var consent = localStorage.getItem(STORAGE_KEY);
 
-  // Contenus tiers intégrés (flux Instagram SnapWidget) : chargés seulement après consentement
-  // global, ou pour la visite en cours si le visiteur clique sur « Afficher les publications ».
-  function loadEmbed(el) {
-    if (el.querySelector('iframe')) return;
-    var iframe = document.createElement('iframe');
-    iframe.src = el.getAttribute('data-consent-embed');
-    iframe.title = el.getAttribute('data-consent-title') || '';
-    iframe.setAttribute('allowtransparency', 'true');
-    iframe.setAttribute('scrolling', 'no');
-    iframe.loading = 'lazy';
-    el.innerHTML = '';
-    el.appendChild(iframe);
-  }
-
-  function loadEmbeds() {
-    document.querySelectorAll('[data-consent-embed]').forEach(loadEmbed);
-  }
-
   function loadGA() {
     if (window.fmgGaLoaded) return;
     window.fmgGaLoaded = true;
@@ -39,17 +21,12 @@
   if (consent === 'accepted') loadGA();
 
   document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-consent-embed]').forEach(function (el) {
-      var btn = el.querySelector('[data-consent-load]');
-      if (btn) btn.addEventListener('click', function () { loadEmbed(el); });
-    });
-    if (consent === 'accepted') loadEmbeds();
     if (consent) return;
 
     var banner = document.createElement('div');
     banner.className = 'cookie-banner';
     banner.innerHTML =
-      '<p>Ce site utilise des cookies de mesure d’audience (Google Analytics) et peut afficher nos publications Instagram via un service tiers (SnapWidget). Vous pouvez accepter ou refuser.</p>' +
+      '<p>Ce site utilise des cookies de mesure d’audience (Google Analytics). Vous pouvez accepter ou refuser.</p>' +
       '<div class="cookie-banner-actions">' +
       '<button type="button" id="cookie-refuse">Refuser</button>' +
       '<button type="button" id="cookie-accept">Accepter</button>' +
@@ -60,7 +37,6 @@
       localStorage.setItem(STORAGE_KEY, 'accepted');
       banner.remove();
       loadGA();
-      loadEmbeds();
     });
     document.getElementById('cookie-refuse').addEventListener('click', function () {
       localStorage.setItem(STORAGE_KEY, 'refused');

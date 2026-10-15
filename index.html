@@ -96,13 +96,28 @@
           <h2>Un atelier au service de l'exigence</h2>
           <p class="lede mt-lg">Fondé en 2014 par Frédéric Teysseire, FMG Metal Studio est un atelier d'architecture métallique basé à Nîmes, dans le Gard. Nous concevons, fabriquons et installons des ouvrages métalliques sur mesure pour des particuliers, des architectes, des architectes d'intérieur, des professionnels, des institutions, des domaines viticoles et des établissements hôteliers, dans des projets où l'esthétique, la précision et la qualité d'exécution sont essentielles.</p>
         </div>
-        <!-- Flux Instagram (service tiers SnapWidget) : chargé par js/consent.js uniquement après
-             acceptation des cookies ou clic du visiteur sur le bouton ci-dessous. -->
-        <div class="insta-embed" data-consent-embed="https://snapwidget.com/embed/1129539" data-consent-title="Publications Instagram de FMG Metal Studio">
-          <div class="insta-placeholder">
-            <p>Nos dernières publications Instagram s'affichent via le service tiers SnapWidget, qui peut déposer des cookies.</p>
-            <button type="button" class="btn btn-outline" data-consent-load>Afficher les publications</button>
+        <!--
+          Diaporama photo (remplace l'ancien flux Instagram SnapWidget) : défile automatiquement,
+          sans service tiers. Pour le mettre à jour : ajouter, retirer ou réordonner les lignes
+          <a class="slideshow-item">. Seule la 1re photo a src= et la classe is-active ; les suivantes
+          utilisent data-src= (chargées une par une par js/main.js, juste avant leur affichage).
+          Conseillé : 8 à 12 photos (au-delà, presque personne ne les voit défiler).
+        -->
+        <div class="slideshow" data-slideshow aria-roledescription="carrousel" aria-label="Quelques réalisations FMG Metal Studio">
+          <div class="slideshow-track">
+            <a class="slideshow-item is-active" href="rooftop-hotel-les-alcyons-le-lavandou.html"><img src="assets/img/rooftop-hotel-les-alcyons-le-lavandou-01.webp" alt="Transats sur le rooftop de l&#39;hôtel Les Alcyons au Lavandou, garde-corps acier anthracite et vue sur la mer"></a>
+            <a class="slideshow-item" href="actualites.html"><img data-src="assets/img/antibes-menuiseries-cintrees-jansen-01.webp" alt="Porte-fenêtre cintrée en profilés acier JANSEN à rupture de pont thermique sous un arc en pierre, villa à Antibes"></a>
+            <a class="slideshow-item" href="verriere-interieure-porte-vitree-montferrier-sur-lez.html"><img data-src="assets/img/verriere-porte-vitree-jansen-montferrier-01.webp" alt="Verrière intérieure en profilés acier JANSEN avec porte entièrement vitrée, espace bureau d'une villa d'architecte, Montferrier-sur-Lez"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/garde-corps-inox-lily-croixvalmer-02.webp" alt="Garde-corps inox, hôtel Lily of the Valley, design Philippe Starck, La Croix-Valmer"></a>
+            <a class="slideshow-item" href="pergola-claustra-pool-house-caveirac.html"><img data-src="assets/img/pergola-claustra-pool-house-caveirac-01.webp" alt="Pergola acier et claustra aluminium thermolaqués RAL 7016, claustra bois Douglas en couverture, pool house au bord de la piscine, Caveirac (Gard)"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/escalier-colimacon-montferrier-01.webp" alt="Escalier colimaçon habillé de claustra, villa d'architecte, Montferrier-sur-Lez"></a>
+            <a class="slideshow-item" href="menuiserie-kiosque-the-coffee-nimes.html"><img data-src="assets/img/the-coffee-nimes-menuiserie-kiosque-01.webp" alt="Menuiserie kiosque thermolaquée RAL 1011, ouvrant vitré relevé à l&#39;horizontale, café THE COFFEE à Nîmes"></a>
+            <a class="slideshow-item" href="pleine-lumiere.html"><img data-src="assets/img/pleine-lumiere-facade-panery-01.webp" alt="Façade en acier Corten et menuiserie acier Pleine Lumière, moulin oléicole du Domaine de Panery"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/portail-corten-nimes-01.webp" alt="Portail coulissant sur mesure en acier Corten, villa d'architecte à Nîmes (Gard)"></a>
+            <a class="slideshow-item" href="realisations.html"><img data-src="assets/img/pergolas-royalgreen-roquebrune-04.webp" alt="Vue d'ensemble des pergolas et de la piscine, résidence Royal Green, Var"></a>
           </div>
+          <button type="button" class="slideshow-pause" data-slideshow-pause aria-label="Mettre en pause le défilement">❚❚</button>
+          <div class="slideshow-dots" data-slideshow-dots></div>
         </div>
       </div>
       <p class="center mt-lg">
