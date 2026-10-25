@@ -582,25 +582,43 @@ section { padding: clamp(4rem, 9vw, 8rem) 0; }
   position: fixed;
   right: clamp(1rem, 3vw, 1.5rem);
   bottom: clamp(1rem, 3vw, 1.5rem);
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: var(--charcoal);
-  border: 1px solid var(--line-on-dark);
-  color: var(--cream);
+  height: 56px;
+  min-width: 56px;
+  padding: 0 1.3rem 0 1.05rem;
+  border-radius: 28px;
+  /* Vert WhatsApp : reconnaissable au premier coup d'œil. Texte en anthracite (contraste 9:1). */
+  background: #25d366;
+  color: var(--charcoal);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(23, 23, 21, 0.22);
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 20px rgba(23, 23, 21, 0.28);
   z-index: 60;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, bottom 0.2s ease;
 }
 .whatsapp-float:hover {
-  background: var(--accent);
-  color: var(--charcoal);
+  background: #1ebe5b;
   transform: translateY(-2px);
 }
-.whatsapp-float svg { width: 22px; height: 22px; fill: currentColor; }
+.whatsapp-float:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.whatsapp-float svg { width: 26px; height: 26px; fill: currentColor; flex-shrink: 0; }
+/* Au-dessus du bandeau cookies tant qu'il est affiché (hauteur mesurée par js/consent.js). */
+.has-cookie-banner .whatsapp-float { bottom: calc(var(--cookie-banner-h, 0px) + 1rem); }
+/* Mobile : bouton rond, icône seule (le libellé reste lu par les lecteurs d'écran via aria-label). */
+@media (max-width: 700px) {
+  .whatsapp-float { padding: 0; }
+  .whatsapp-float-label { display: none; }
+}
+
+/* Bouton WhatsApp de la page Contact */
+.btn-whatsapp { background: #25d366; color: var(--charcoal); margin-top: 0.6rem; }
+.btn-whatsapp:hover { background: #1ebe5b; }
+.btn-whatsapp svg { width: 20px; height: 20px; fill: currentColor; }
 
 /* ---------- Bandeau cookies ---------- */
 

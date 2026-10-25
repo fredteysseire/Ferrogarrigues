@@ -33,14 +33,27 @@
       '</div>';
     document.body.appendChild(banner);
 
+    // Tant que le bandeau est affiché, le bouton WhatsApp flottant se place au-dessus de lui.
+    function placeWhatsapp() {
+      document.body.style.setProperty('--cookie-banner-h', banner.offsetHeight + 'px');
+    }
+    document.body.classList.add('has-cookie-banner');
+    placeWhatsapp();
+    window.addEventListener('resize', placeWhatsapp);
+    function closeBanner() {
+      banner.remove();
+      document.body.classList.remove('has-cookie-banner');
+      window.removeEventListener('resize', placeWhatsapp);
+    }
+
     document.getElementById('cookie-accept').addEventListener('click', function () {
       localStorage.setItem(STORAGE_KEY, 'accepted');
-      banner.remove();
+      closeBanner();
       loadGA();
     });
     document.getElementById('cookie-refuse').addEventListener('click', function () {
       localStorage.setItem(STORAGE_KEY, 'refused');
-      banner.remove();
+      closeBanner();
     });
   });
 })();
