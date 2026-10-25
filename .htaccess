@@ -4,6 +4,42 @@
 DirectoryIndex index.html
 Options -Indexes
 
+# Page d'erreur aux couleurs du site pour les adresses introuvables (404) ou supprimées
+# (410, voir « Redirect gone » et les règles [G] plus bas), au lieu de la page brute d'Apache.
+ErrorDocument 404 /404.html
+ErrorDocument 410 /404.html
+
+# =========================================================
+# Cache navigateur et compression
+# =========================================================
+# Images : gardées 30 jours par le navigateur. Pas plus, car une photo est parfois remplacée
+# sous le même nom (ex. visage flouté) : pour qu'un remplacement soit visible tout de suite,
+# donner un nouveau nom au fichier.
+# HTML, CSS, JS : revalidés à chaque visite (réponse 304 très légère si rien n'a changé), car
+# ils sont modifiés souvent et sans numéro de version : une page récente ne doit jamais
+# tourner avec un ancien style.css ou main.js resté en cache.
+# ETag sans inode : identique d'un serveur à l'autre de l'hébergement mutualisé.
+FileETag MTime Size
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/webp "access plus 30 days"
+ExpiresByType image/png "access plus 30 days"
+ExpiresByType image/jpeg "access plus 30 days"
+ExpiresByType image/svg+xml "access plus 30 days"
+ExpiresByType image/x-icon "access plus 30 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+<FilesMatch "\.(html|css|js)$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json application/xml image/svg+xml
+</IfModule>
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
