@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Page servie par Apache pour toute adresse introuvable (404) ou supprimée (410), quelle que soit
+     sa profondeur (ex. /ancienne/page/) : la balise base fait pointer tous les liens relatifs de la
+     page, y compris ceux du pied de page injecté par js/footer.js, vers la racine du site. -->
+<base href="/">
+<title>Page introuvable, FMG Metal Studio</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo"><img src="assets/img/logo-fmg-horizontal.webp" alt="FMG Metal Studio, atelier d&#39;architecture métallique" class="logo-img"></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="atelier.html">L'Atelier</a>
+      <a href="realisations.html">Réalisations</a>
+      <a href="pleine-lumiere.html">Pleine Lumière®</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Erreur 404</span>
+      <h1>Cette page n'existe pas ou plus</h1>
+      <p class="lede mt-lg">L'adresse est peut-être mal saisie, ou la page a été déplacée lors de la refonte du site. Nos réalisations, notre collection Pleine Lumière® et nos coordonnées restent à portée de clic.</p>
+      <p style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+        <a href="realisations.html" class="btn btn-primary">Voir nos réalisations</a>
+        <a href="index.html" class="btn btn-outline">Retour à l'accueil</a>
+      </p>
+      <p class="mt-lg">Un projet ? Appelez-nous au <a href="tel:+33661067375">06 61 06 73 75</a> ou <a href="contact.html">écrivez-nous</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/consent.js"></script>
+</body>
+</html>
