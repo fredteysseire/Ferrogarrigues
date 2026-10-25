@@ -35,21 +35,26 @@ if (!empty($_POST['site_web'])) {
     retour('merci.html');
 }
 
-$nom = ligne($_POST['nom'] ?? '', 120);
+$prenom = ligne($_POST['prenom'] ?? '', 60);
+$nom = ligne($_POST['nom'] ?? '', 60);
 $email = ligne($_POST['email'] ?? '', 160);
 $telephone = ligne($_POST['telephone'] ?? '', 40);
 $lieu = ligne($_POST['lieu'] ?? '', 160);
 $projet = ligne($_POST['projet'] ?? '', 120);
 $message = trim(mb_substr((string) ($_POST['message'] ?? ''), 0, 5000, 'UTF-8'));
 
-if ($nom === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+// Champs obligatoires : prénom, nom, email valide, téléphone et message (aussi exigés par le
+// formulaire lui-même, cette vérification couvre les envois qui contournent la page).
+if ($prenom === '' || $nom === '' || $telephone === '' || $message === ''
+    || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     retour('contact.html?envoi=erreur#contact-form');
 }
 
 $corps = "Nouvelle demande depuis le site ferrogarrigues.fr\n\n"
+    . "Prénom : $prenom\n"
     . "Nom : $nom\n"
     . "Email : $email\n"
-    . "Téléphone : " . ($telephone !== '' ? $telephone : 'non renseigné') . "\n"
+    . "Téléphone : $telephone\n"
     . "Lieu du chantier : " . ($lieu !== '' ? $lieu : 'non renseigné') . "\n"
     . "Type de projet : $projet\n\n"
     . "Message :\n$message\n";
@@ -76,8 +81,8 @@ if (!ctype_digit((string) $verif) || (int) $verif < DELAI_MIN_MS) {
 // pouvoir la trier avec une règle de la messagerie.
 $chiffres = preg_replace('/\D+/', '', $telephone);
 $telephoneValide = preg_match('/^0\d{9}$/', $chiffres) || (preg_match('/^\s*(\+|00)/', $telephone) && strlen($chiffres) >= 8 && strlen($chiffres) <= 15);
-$suspect = preg_match('~https?://|www\.~i', $message . ' ' . $nom . ' ' . $lieu)
-    || preg_match('/[\p{Cyrillic}\p{Han}\p{Hangul}]/u', $nom . ' ' . $message)
+$suspect = preg_match('~https?://|www\.~i', $message . ' ' . $prenom . ' ' . $nom . ' ' . $lieu)
+    || preg_match('/[\p{Cyrillic}\p{Han}\p{Hangul}]/u', $prenom . ' ' . $nom . ' ' . $message)
     || !$telephoneValide;
 
 // Limite le nombre d'envois par adresse IP (anti-spam), stocké hors base de données.
@@ -113,7 +118,7 @@ if ($fp) {
     }
 }
 
-$sujet = mb_encode_mimeheader(($suspect ? '[SPAM ?] ' : '') . "Nouvelle demande, site FMG Metal Studio : $nom", 'UTF-8');
+$sujet = mb_encode_mimeheader(($suspect ? '[SPAM ?] ' : '') . "Nouvelle demande, site FMG Metal Studio : $prenom $nom", 'UTF-8');
 $entetes = implode("\r\n", [
     'From: ' . mb_encode_mimeheader('Site FMG Metal Studio', 'UTF-8') . ' <' . EXPEDITEUR . '>',
     'Reply-To: ' . $email,
