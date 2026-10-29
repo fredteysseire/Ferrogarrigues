@@ -8,7 +8,10 @@ Site vitrine de FMG Metal Studio, atelier d'architecture métallique à Nîmes (
 
 Mise en ligne automatique par l'intégration Git d'OVH : la branche
 `claude/ferrogarrigues-site-modernization-vu6bqv` (branche par défaut de ce dépôt) est publiée dans
-le dossier racine du site sur l'hébergement OVH (onglet Multisite, « Associer Git »). Toute
+le dossier `github_site` de l'hébergement (site OVH « Website-github_site », vers lequel pointent
+ferrogarrigues.fr et www.ferrogarrigues.fr). Le webhook GitHub (Settings → Webhooks) appelle l'URL
+affichée dans le formulaire Git d'OVH de ce site : une réponse 401 signifie que cette URL n'est plus
+reconnue par OVH. Toute
 modification fusionnée dans cette branche part en ligne. `README.md` et `.git*` sont publiés avec
 le dépôt mais renvoient une 404 (règle du `.htaccess`).
 
