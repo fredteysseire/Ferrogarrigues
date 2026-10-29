@@ -9,6 +9,10 @@ Options -Indexes
 ErrorDocument 404 /404.html
 ErrorDocument 410 /404.html
 
+# Fichiers du dépôt Git publiés par l'intégration Git d'OVH mais à ne pas servir :
+# README (notes internes de configuration) et dossiers techniques.
+RedirectMatch 404 ^/(README\.md|\.git(/.*)?|\.gitignore)$
+
 # =========================================================
 # Cache navigateur et compression
 # =========================================================
